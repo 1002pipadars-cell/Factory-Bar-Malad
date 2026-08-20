@@ -3,31 +3,73 @@ const app = express();
 
 app.use(express.json());
 
-// Sample events endpoint
+const eventsList = [
+  {
+    id: "mon",
+    name: "Monday",
+    icon: "🎤",
+    time: "8:00 PM onwards",
+    nearestDate: "Mon, 24 Aug 2026",
+    price: 250,
+    redeemableAtOutlet: true,
+    spotsRemaining: 50
+  },
+  {
+    id: "tue",
+    name: "Tuesday – Speakeasy Nights",
+    icon: "🎤",
+    time: "8:00 PM onwards",
+    nearestDate: "Tue, 25 Aug 2026",
+    price: 250,
+    redeemableAtOutlet: true,
+    spotsRemaining: 50
+  },
+  {
+    id: "wed",
+    name: "Wednesday – Hinglish Karaoke",
+    icon: "🎤",
+    time: "8:00 PM onwards",
+    nearestDate: "Wed, 26 Aug 2026",
+    price: 500,
+    redeemableAtOutlet: true,
+    spotsRemaining: 50
+  },
+  {
+    id: "thu",
+    name: "Thursday – English Karaoke Night",
+    icon: "🎤",
+    time: "8:00 PM onwards",
+    nearestDate: "Thu, 27 Aug 2026",
+    price: 250,
+    redeemableAtOutlet: true,
+    spotsRemaining: 50
+  },
+  {
+    id: "fri",
+    name: "Friday – Bollywood Karaoke Night",
+    icon: "🎵",
+    time: "8:00 PM onwards",
+    nearestDate: "Fri, 28 Aug 2026",
+    price: 500,
+    redeemableAtOutlet: true,
+    spotsRemaining: 50
+  },
+  {
+    id: "sat",
+    name: "Saturday – Bollywood Karaoke Night",
+    icon: "🎵",
+    time: "8:00 PM onwards",
+    nearestDate: "Sat, 29 Aug 2026",
+    price: 500,
+    redeemableAtOutlet: true,
+    spotsRemaining: 50
+  }
+];
+
 app.get("/api/getEvents", (req, res) => {
-  res.json({
-    events: [
-      {
-        id: "1",
-        name: "Karaoke Night",
-        time: "8:00 PM onwards",
-        price: 0,
-        redeemableAtOutlet: "FREE ENTRY",
-        full: false
-      },
-      {
-        id: "2",
-        name: "Weekend DJ Party",
-        time: "9:00 PM onwards",
-        price: 500,
-        redeemableAtOutlet: "FULL COVER CHARGE",
-        full: false
-      }
-    ]
-  });
+  res.json({ events: eventsList });
 });
 
-// Sample submission endpoint
 app.post("/api/submitBooking", (req, res) => {
   const { customerName, phone } = req.body;
   if (!customerName || !phone) {
