@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <base target="_top">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Factory Bar Malad</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; scroll-behavior: smooth; }
+    :root {
+      --black: #0b0710; --black-soft: #1a0f1f; --red: #b3123f; --red-2: #ff2f6e; --red-3: #ff5c8a;
+      --cream: #fbf1de; --gold: #e3b968; --gold-2: #cda355; --gold-3: #ffe7ad; --accent: #ffb238;
+      --paper: #fbf3e3; --paper-2: #fffaf0; --ink: #241a12; --muted: #7c6f78; --line: #e3cf9a;
+      --neon-pink: #ff2f92; --neon-amber: #ffb238; --neon-cyan: #2be8d9;
+      --shadow-soft: 0 10px 28px rgba(10, 5, 15, .35); --shadow-lift: 0 20px 52px rgba(10, 5, 15, .55);
+      --shadow-gold: 0 8px 26px rgba(205, 163, 85, .45); --shadow-glow: 0 0 0 1px rgba(255, 47, 110, .4), 0 12px 34px rgba(255, 47, 110, .28);
+      --ease: cubic-bezier(.22, .8, .32, 1); --ease-bounce: cubic-bezier(.34, 1.56, .64, 1);
+    }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes glow { 0%, 100% { box-shadow: 0 0 0 0 rgba(255, 47, 146, .5); } 50% { box-shadow: 0 0 0 8px rgba(255, 47, 146, 0); } }
+    @keyframes shimmer { 0% { background-position: -300px 0; } 100% { background-position: 300px 0; } }
+    @keyframes popIn { 0% { opacity: 0; transform: scale(.85); } 70% { opacity: 1; transform: scale(1.04); } 100% { opacity: 1; transform: scale(1); } }
+    @keyframes bounceIn { 0% { transform: scale(0); opacity: 0; } 60% { transform: scale(1.15); opacity: 1; } 100% { transform: scale(1); } }
+    @keyframes floatUp { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+    @keyframes logoGlow { 0%, 100% { box-shadow: 0 0 0 6px rgba(255, 47, 146, .14), 0 0 18px rgba(255, 178, 56, .35), var(--shadow-soft); } 50% { box-shadow: 0 0 0 9px rgba(255, 47, 146, .24), 0 0 30px rgba(255, 178, 56, .55), var(--shadow-soft); } }
+    @keyframes neonBreathePink { 0%, 100% { text-shadow: 0 0 8px rgba(255, 47, 146, .55), 0 0 22px rgba(255, 47, 146, .32); } 50% { text-shadow: 0 0 15px rgba(255, 47, 146, .9), 0 0 36px rgba(255, 47, 146, .55); } }
+    @keyframes neonBreatheCyan { 0%, 100% { text-shadow: 0 0 8px rgba(43, 232, 217, .55), 0 0 20px rgba(43, 232, 217, .3); } 50% { text-shadow: 0 0 14px rgba(43, 232, 217, .9), 0 0 32px rgba(43, 232, 217, .55); } }
+
+    body { margin: 0; font-family: 'Manrope', Arial, sans-serif; color: var(--ink); background: linear-gradient(180deg, #0b0710 0%, #150c1c 45%, #17101d 100%); background-attachment: fixed; }
+    html, body { width: 100%; min-height: 100%; overflow-x: hidden; }
+    .container { width: 100%; min-height: 100vh; margin: 0; padding: max(14px, env(safe-area-inset-top)) max(14px, env(safe-area-inset-right)) max(48px, env(safe-area-inset-bottom)) max(14px, env(safe-area-inset-left)); }
+    @media (min-width: 1024px) { .container { max-width: 900px; margin: 0 auto; padding-top: 32px; } }
+
+    .header { position: relative; text-align: center; background: linear-gradient(160deg, #120b17 0%, var(--black) 60%, #0d0910 100%); border-radius: 22px; padding: 30px 16px 34px; margin-bottom: 26px; border: 2px solid var(--gold-2); box-shadow: var(--shadow-lift); overflow: hidden; animation: fadeInUp .5s var(--ease) both; }
+    .brand-logo { width: clamp(84px, 18vw, 128px); height: clamp(84px, 18vw, 128px); object-fit: contain; display: block; margin: 0 auto 12px; border-radius: 50%; border: 2px solid var(--gold-2); animation: floatUp 5s ease-in-out infinite, logoGlow 3.2s ease-in-out infinite; background: #0c0c0c; }
+    .brand-name { color: var(--cream); font-family: 'Monoton', cursive; font-size: clamp(22px, 5.4vw, 36px); animation: neonBreathePink 3.6s ease-in-out infinite; }
+    .brand-name span { color: var(--neon-cyan); animation: neonBreatheCyan 3.6s ease-in-out infinite; }
+    .subtitle { color: var(--gold-3); font-family: 'Space Mono', monospace; font-size: 12.5px; letter-spacing: 3px; text-transform: uppercase; margin-top: 12px; }
+    
+    .section-title { font-family: 'Fraunces', Georgia, serif; font-size: clamp(23px, 5vw, 32px); font-weight: 800; margin: 6px 0 18px; color: var(--gold-3); }
+    #eventsContainer { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    .event-card { border: 1px solid var(--line); border-radius: 18px; padding: 22px; cursor: pointer; background: var(--paper-2); box-shadow: var(--shadow-soft); transition: transform .18s var(--ease); animation: fadeInUp .45s var(--ease) both; }
+    .event-card:hover { transform: translateY(-4px); border-color: var(--gold-2); }
+    .event-name { font-family: 'Fraunces', serif; font-weight: 700; font-size: 22px; color: var(--ink); }
+    .price { font-family: 'Space Mono', monospace; font-size: 16px; font-weight: 700; margin-top: 8px; }
+    .price.free { color: #0b7d6b; } .price.paid { color: var(--ink); }
+    
+    .form-section { display: none; background: var(--paper-2); border: 1.5px solid var(--line); border-radius: 22px; padding: 22px; box-shadow: var(--shadow-lift); }
+    .field { margin-bottom: 20px; }
+    label { display: block; font-size: 16px; font-weight: 800; margin-bottom: 8px; }
+    input, select, textarea { width: 100%; min-height: 52px; padding: 12px 16px; border: 2px solid #d8cca4; border-radius: 12px; font-size: 16px; }
+    .book-button { width: 100%; background: linear-gradient(135deg, var(--red-3), var(--red-2)); color: white; padding: 16px; border-radius: 14px; font-size: 18px; font-weight: 800; border: none; cursor: pointer; }
+    
+    .success { display: none; text-align: center; padding: 34px 20px; background: var(--paper-2); border: 2px dashed var(--gold-2); border-radius: 22px; }
+    .error { display: none; background: #fff0f0; color: #b00020; padding: 14px; border-radius: 12px; margin-bottom: 16px; }
+  </style>
+</head>
+
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="brand-name">FACTORY <span>BAR</span> MALAD</div>
+    <div class="subtitle">Karaoke Nights • Music • Drinks • Good Times</div>
+  </div>
+
+  <div id="eventSection">
+    <div class="section-title">Select Your Event</div>
+    <div id="loading">Loading events...</div>
+    <div id="eventsContainer"></div>
+  </div>
+
+  <div id="formSection" class="form-section">
+    <button type="button" onclick="goBackToEvents()" style="margin-bottom:15px; padding:10px 15px; border-radius:8px; cursor:pointer;">← Select Another Event</button>
+    <div id="errorBox" class="error"></div>
+    
+    <div class="field">
+      <label>🎉 Selected Event</label>
+      <select id="selectedEvent"></select>
+    </div>
+
+    <div class="field">
+      <label>🙋 Your Name *</label>
+      <input id="customerName" type="text" placeholder="Enter your name" required>
+    </div>
+
+    <div class="field">
+      <label>📱 Mobile Number *</label>
+      <input id="phone" type="tel" placeholder="Enter 10-digit mobile number" required>
+    </div>
+
+    <div class="field">
+      <label>✉️ Email *</label>
+      <input id="email" type="email" placeholder="Enter email" required>
+    </div>
+
+    <button id="bookButton" class="book-button" onclick="submitBooking()">Submit Booking</button>
+  </div>
+
+  <div id="successSection" class="success">
+    <h2>Booking Submitted!</h2>
+    <p>Booking ID: <strong id="bookingId"></strong></p>
+  </div>
+
+</div>
+
+<script>
+let events = [];
+
+window.onload = function() {
+  fetch('/api/getEvents')
+    .then(res => res.json())
+    .then(data => {
+      events = Array.isArray(data) ? data : (data.events || []);
+      document.getElementById("loading").style.display = "none";
+      renderEvents();
+    })
+    .catch(err => {
+      document.getElementById("loading").innerText = "Failed to load events.";
+      console.error(err);
+    });
+};
+
+function renderEvents() {
+  const container = document.getElementById("eventsContainer");
+  container.innerHTML = "";
+
+  if (!events.length) {
+    container.innerHTML = "<p>No events available.</p>";
+    return;
+  }
+
+  events.forEach(event => {
+    const card = document.createElement("div");
+    card.className = "event-card";
+    card.onclick = () => selectEvent(event);
+    card.innerHTML = `
+      <div class="event-name">${event.name}</div>
+      <div>${event.time}</div>
+      <div class="price ${event.price === 0 ? 'free' : 'paid'}">
+        ${event.price === 0 ? 'FREE ENTRY' : '₹' + event.price + ' per person'}
+      </div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+function selectEvent(event) {
+  document.getElementById("eventSection").style.display = "none";
+  document.getElementById("formSection").style.display = "block";
+  const select = document.getElementById("selectedEvent");
+  select.innerHTML = `<option value="${event.id}">${event.name}</option>`;
+}
+
+function goBackToEvents() {
+  document.getElementById("formSection").style.display = "none";
+  document.getElementById("eventSection").style.display = "block";
+}
+
+function submitBooking() {
+  const payload = {
+    eventId: document.getElementById("selectedEvent").value,
+    customerName: document.getElementById("customerName").value,
+    phone: document.getElementById("phone").value,
+    email: document.getElementById("email").value
+  };
+
+  fetch('/api/submitBooking', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.success) {
+      document.getElementById("formSection").style.display = "none";
+      document.getElementById("successSection").style.display = "block";
+      document.getElementById("bookingId").innerText = data.bookingId;
+    } else {
+      document.getElementById("errorBox").style.display = "block";
+      document.getElementById("errorBox").innerText = data.message || "Failed.";
+    }
+  })
+  .catch(err => console.error(err));
+}
+</script>
+</body>
+</html>
