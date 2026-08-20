@@ -1,0 +1,3972 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <base target="_top">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+  <title>Factory Bar Malad</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      -webkit-tap-highlight-color: transparent;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --black: #0b0710;
+      --black-soft: #1a0f1f;
+      --red: #b3123f;
+      --red-2: #ff2f6e;
+      --red-3: #ff5c8a;
+      --cream: #fbf1de;
+      --gold: #e3b968;
+      --gold-2: #cda355;
+      --gold-3: #ffe7ad;
+      --accent: #ffb238;
+      --accent-2: #ff6b6b;
+      --violet: #a25cff;
+      --paper: #fbf3e3;
+      --paper-2: #fffaf0;
+      --ink: #241a12;
+      --muted: #7c6f78;
+      --line: #e3cf9a;
+      --neon-pink: #ff2f92;
+      --neon-amber: #ffb238;
+      --neon-cyan: #2be8d9;
+      --shadow-soft: 0 10px 28px rgba(10, 5, 15, .35);
+      --shadow-lift: 0 20px 52px rgba(10, 5, 15, .55);
+      --shadow-gold: 0 8px 26px rgba(205, 163, 85, .45);
+      --shadow-glow: 0 0 0 1px rgba(255, 47, 110, .4), 0 12px 34px rgba(255, 47, 110, .28);
+      --ease: cubic-bezier(.22, .8, .32, 1);
+      --ease-bounce: cubic-bezier(.34, 1.56, .64, 1);
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(255, 47, 146, .5); }
+      50%      { box-shadow: 0 0 0 8px rgba(255, 47, 146, 0); }
+    }
+
+    @keyframes shimmer {
+      0%   { background-position: -300px 0; }
+      100% { background-position: 300px 0; }
+    }
+
+    @keyframes popIn {
+      0%   { opacity: 0; transform: scale(.85); }
+      70%  { opacity: 1; transform: scale(1.04); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes bounceIn {
+      0%   { transform: scale(0); opacity: 0; }
+      60%  { transform: scale(1.15); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes floatUp {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-6px); }
+    }
+
+    @keyframes logoGlow {
+      0%, 100% { box-shadow: 0 0 0 6px rgba(255, 47, 146, .14), 0 0 18px rgba(255, 178, 56, .35), var(--shadow-soft); }
+      50%      { box-shadow: 0 0 0 9px rgba(255, 47, 146, .24), 0 0 30px rgba(255, 178, 56, .55), var(--shadow-soft); }
+    }
+
+    @keyframes neonBreathePink {
+      0%, 100% { text-shadow: 0 0 8px rgba(255, 47, 146, .55), 0 0 22px rgba(255, 47, 146, .32), 0 0 3px rgba(255, 255, 255, .5); }
+      50%      { text-shadow: 0 0 15px rgba(255, 47, 146, .9), 0 0 36px rgba(255, 47, 146, .55), 0 0 5px rgba(255, 255, 255, .7); }
+    }
+
+    @keyframes neonBreatheCyan {
+      0%, 100% { text-shadow: 0 0 8px rgba(43, 232, 217, .55), 0 0 20px rgba(43, 232, 217, .3), 0 0 3px rgba(255, 255, 255, .5); }
+      50%      { text-shadow: 0 0 14px rgba(43, 232, 217, .9), 0 0 32px rgba(43, 232, 217, .55), 0 0 5px rgba(255, 255, 255, .7); }
+    }
+
+    @keyframes spotlightSway {
+      0%, 100% { transform: translateX(0) rotate(0deg); opacity: .75; }
+      50%      { transform: translateX(16px) rotate(1deg); opacity: 1; }
+    }
+
+    @keyframes bulbChase {
+      to { background-position: 18px 0; }
+    }
+
+    @keyframes shineSweep {
+      0%   { transform: translateX(-120%) skewX(-20deg); }
+      100% { transform: translateX(220%) skewX(-20deg); }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(255, 47, 146, .4), 0 14px 32px rgba(255, 47, 146, .35); }
+      50%      { box-shadow: 0 0 0 10px rgba(255, 47, 146, 0), 0 14px 32px rgba(255, 47, 146, .35); }
+    }
+
+    @keyframes dividerIn {
+      from { opacity: 0; transform: translateX(-10px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes confettiFall {
+      0%   { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(60px) rotate(360deg); opacity: 0; }
+    }
+
+    @keyframes ringExpand {
+      0%   { transform: scale(.6); opacity: .8; }
+      100% { transform: scale(2.2); opacity: 0; }
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Manrope', 'Poppins', Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(720px 440px at 12% -6%, rgba(255, 47, 146, .20), transparent 60%),
+        radial-gradient(640px 420px at 100% 0%, rgba(43, 232, 217, .13), transparent 55%),
+        radial-gradient(900px 620px at 50% 112%, rgba(205, 163, 85, .16), transparent 60%),
+        linear-gradient(180deg, #0b0710 0%, #150c1c 45%, #17101d 100%);
+      background-attachment: fixed;
+    }
+
+    html, body {
+      width: 100%;
+      min-width: 100%;
+      min-height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    ::selection {
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    /* Custom scrollbar (desktop) */
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, var(--neon-pink), var(--gold-2));
+      border-radius: 10px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: none;
+      min-width: 0;
+      min-height: 100vh;
+      min-height: 100dvh;
+      margin: 0;
+      box-sizing: border-box;
+
+      padding:
+        max(14px, env(safe-area-inset-top))
+        max(14px, env(safe-area-inset-right))
+        max(48px, env(safe-area-inset-bottom))
+        max(14px, env(safe-area-inset-left));
+    }
+
+    @media (min-width: 1024px) {
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding-top: 32px;
+      }
+    }
+
+    @media (min-width: 1280px) {
+      .container {
+        max-width: 1120px;
+      }
+    }
+
+    /* ============ HEADER ============ */
+
+    .header {
+      position: relative;
+      text-align: center;
+      background:
+        linear-gradient(160deg, #120b17 0%, var(--black) 60%, #0d0910 100%);
+      border-radius: 22px;
+      padding: 30px 16px 34px;
+      margin-bottom: 26px;
+      border: 2px solid var(--gold-2);
+      box-shadow: var(--shadow-lift), inset 0 1px 0 rgba(255, 255, 255, .04);
+      overflow: hidden;
+      animation: fadeInUp .5s var(--ease) both;
+    }
+
+    .header::before {
+      content: "";
+      position: absolute;
+      inset: -40% -20% auto -20%;
+      height: 230px;
+      background:
+        radial-gradient(60% 60% at 28% 0%, rgba(255, 47, 146, .38), transparent 70%),
+        radial-gradient(50% 60% at 76% 0%, rgba(43, 232, 217, .28), transparent 70%);
+      filter: blur(6px);
+      animation: spotlightSway 7s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .header::after {
+      content: "";
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 12px;
+      height: 6px;
+      background-image: radial-gradient(circle, var(--neon-amber) 0 2.6px, transparent 3px);
+      background-size: 18px 100%;
+      background-repeat: repeat-x;
+      opacity: .9;
+      filter: drop-shadow(0 0 4px var(--neon-amber));
+      animation: bulbChase 1.3s linear infinite;
+      z-index: 1;
+    }
+
+    .brand-logo {
+      position: relative;
+      z-index: 1;
+      width: clamp(84px, 18vw, 128px);
+      height: clamp(84px, 18vw, 128px);
+      object-fit: contain;
+      display: block;
+      margin: 0 auto 12px;
+      border-radius: 50%;
+      border: 2px solid var(--gold-2);
+      animation: floatUp 5s ease-in-out infinite, logoGlow 3.2s ease-in-out infinite;
+      background: #0c0c0c;
+    }
+
+    .brand-name {
+      position: relative;
+      z-index: 1;
+      color: var(--cream);
+      font-family: 'Monoton', cursive;
+      font-weight: 400;
+      font-size: clamp(22px, 5.4vw, 36px);
+      line-height: 1.5;
+      letter-spacing: 1px;
+      animation: neonBreathePink 3.6s ease-in-out infinite;
+    }
+
+    .brand-name span {
+      color: var(--neon-cyan);
+      animation: neonBreatheCyan 3.6s ease-in-out infinite;
+    }
+
+    .subtitle {
+      position: relative;
+      z-index: 1;
+      color: var(--gold-3);
+      font-family: 'Space Mono', monospace;
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-top: 12px;
+      opacity: .92;
+    }
+
+    .section-title {
+      position: relative;
+      font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+      font-size: clamp(23px, 5vw, 32px);
+      font-weight: 800;
+      margin: 6px 0 18px;
+      padding-left: 18px;
+      color: var(--gold-3);
+      letter-spacing: -.2px;
+      text-shadow: 0 2px 16px rgba(0, 0, 0, .5);
+    }
+
+    .section-title::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 4px;
+      bottom: 4px;
+      width: 5px;
+      border-radius: 6px;
+      background: linear-gradient(180deg, var(--neon-pink), var(--gold-2));
+      box-shadow: 0 0 10px rgba(255, 47, 146, .5);
+    }
+
+    #formSection > .section-title {
+      font-size: clamp(26px, 6vw, 34px);
+      margin-bottom: 22px;
+      color: var(--ink);
+      text-shadow: none;
+    }
+
+    .form-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 32px 0 20px;
+      animation: dividerIn .4s var(--ease) both;
+    }
+
+    .form-divider span {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 17px;
+      font-weight: 900;
+      color: var(--black);
+      white-space: nowrap;
+      letter-spacing: -.2px;
+    }
+
+    .form-divider::after {
+      content: "";
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold-2), transparent);
+      border-radius: 2px;
+    }
+
+    .back-event-button {
+      width: 100%;
+      border: 1.5px solid var(--line);
+      background: var(--paper-2);
+      color: var(--ink);
+      padding: 14px 16px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      margin: 0 0 18px;
+      transition: transform .15s var(--ease), background .2s ease, color .2s ease, border-color .2s ease, box-shadow .2s ease;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .back-event-button:hover {
+      background: var(--black);
+      color: var(--cream);
+      border-color: var(--black);
+      box-shadow: var(--shadow-lift);
+    }
+
+    .back-event-button:active {
+      transform: scale(.97);
+    }
+
+    .instagram-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 14px;
+      padding: 12px 20px;
+      border: 1.5px solid var(--gold);
+      border-radius: 999px;
+      color: var(--black);
+      background: linear-gradient(135deg, #fffdf7, #f6ecd4);
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 14px;
+      transition: transform .15s var(--ease), box-shadow .2s ease;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .instagram-link:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-gold);
+    }
+
+    /* ============ EVENTS ============ */
+
+    #loading {
+      color: #dcc9e6 !important;
+    }
+
+    #eventsContainer {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    #eventsContainer p {
+      color: var(--gold-3);
+      text-align: center;
+      font-weight: 600;
+    }
+
+    @media (min-width: 1024px) {
+      #eventsContainer {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1280px) {
+      #eventsContainer {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .event-card {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px 22px 22px 26px;
+      cursor: pointer;
+      background: var(--paper-2);
+      box-shadow: var(--shadow-soft);
+      transition: transform .18s var(--ease), box-shadow .25s ease, border-color .25s ease;
+      animation: fadeInUp .45s var(--ease) both;
+      overflow: hidden;
+    }
+
+    #eventsContainer .event-card:nth-child(1) { animation-delay: .02s; }
+    #eventsContainer .event-card:nth-child(2) { animation-delay: .07s; }
+    #eventsContainer .event-card:nth-child(3) { animation-delay: .12s; }
+    #eventsContainer .event-card:nth-child(4) { animation-delay: .17s; }
+    #eventsContainer .event-card:nth-child(5) { animation-delay: .22s; }
+    #eventsContainer .event-card:nth-child(6) { animation-delay: .27s; }
+    #eventsContainer .event-card:nth-child(n+7) { animation-delay: .3s; }
+
+    .event-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 5px;
+      background: linear-gradient(180deg, var(--gold-2), var(--neon-pink));
+      opacity: .9;
+    }
+
+    .event-card:hover {
+      border-color: var(--gold-2);
+      box-shadow: var(--shadow-lift), 0 0 0 1px rgba(255, 47, 146, .15);
+      transform: translateY(-4px);
+    }
+
+    .event-card:hover .radio {
+      box-shadow: 0 0 16px var(--neon-amber);
+    }
+
+    .event-card:active {
+      transform: scale(.98);
+    }
+
+    .event-card.full {
+      opacity: .58;
+      cursor: not-allowed;
+      filter: grayscale(.3);
+    }
+
+    .event-card.full:hover {
+      transform: none;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .event-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .event-top > :first-child {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .event-name {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700;
+      font-size: clamp(20px, 5.6vw, 24px);
+      line-height: 1.35;
+      color: var(--ink);
+      letter-spacing: -.2px;
+    }
+
+    .event-info {
+      color: var(--muted);
+      font-size: clamp(15px, 4vw, 16.5px);
+      line-height: 1.55;
+      margin-top: 8px;
+    }
+
+    .price-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .redeemable-badge {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .2px;
+      background: linear-gradient(135deg, #eaf7ee, #f0f6ef);
+      color: #1a7a3c;
+      border: 1px solid #bfe0c6;
+    }
+
+    .redeemable-badge.no {
+      background: linear-gradient(135deg, #fdeeee, #f8eeee);
+      color: #a71920;
+      border-color: #e8bfc2;
+    }
+
+    .price {
+      font-family: 'Space Mono', monospace;
+      font-size: 17px;
+      font-weight: 700;
+      margin-top: 0;
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 12px;
+      border-radius: 999px;
+    }
+
+    .price.free {
+      color: #0b7d6b;
+      background: #e3faf6;
+    }
+
+    .price.paid {
+      color: var(--ink);
+      background: #f2e9ce;
+    }
+
+    .free { color: #0b7d6b; }
+    .paid { color: var(--ink); }
+
+    .full-label {
+      display: inline-block;
+      color: #fff;
+      background: linear-gradient(135deg, var(--red-2), #8f151c);
+      font-weight: 800;
+      margin-top: 10px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      letter-spacing: .3px;
+    }
+
+    .radio {
+      position: relative;
+      width: 34px;
+      height: 34px;
+      border: none;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, var(--gold), var(--gold-2));
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: box-shadow .25s ease;
+    }
+
+    .radio::after {
+      content: "\203A";
+      color: var(--black);
+      font-size: 20px;
+      font-weight: 900;
+      line-height: 1;
+      transform: translateX(1px);
+    }
+
+    .event-card.full .radio {
+      background: #ddd3ba;
+    }
+
+    /* ============ TABLE SUGGESTIONS ============ */
+
+    .table-suggestions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    @media (min-width: 1024px) {
+      .table-suggestions {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 1280px) {
+      .table-suggestions {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    .table-card {
+      position: relative;
+      border: 2px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--paper-2);
+      cursor: pointer;
+      transition: border-color .2s var(--ease), box-shadow .25s ease, transform .18s var(--ease);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .table-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lift);
+    }
+
+    .table-card.selected {
+      border-color: var(--red-2);
+      box-shadow: 0 0 0 4px rgba(255, 47, 146, .16), var(--shadow-lift);
+      animation: glow 1.8s ease-in-out infinite;
+    }
+
+    .table-card.selected::after {
+      content: "\2713";
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--red-2), #8f151c);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(255, 47, 146, .45);
+      z-index: 2;
+      animation: bounceIn .35s var(--ease) both;
+    }
+
+    .table-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      display: block;
+      background: #eee;
+      cursor: zoom-in;
+      transition: transform .35s var(--ease), filter .25s ease;
+    }
+
+    .table-card:hover img {
+      transform: scale(1.06);
+      filter: brightness(1.03);
+    }
+
+    .table-card-body {
+      padding: 14px 16px 16px;
+    }
+
+    .table-card-title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--ink);
+    }
+
+    .table-card-meta {
+      color: var(--muted);
+      font-size: 15px;
+      margin-top: 5px;
+      line-height: 1.4;
+    }
+
+    .table-status {
+      color: #0b7d6b;
+      font-size: 14.5px;
+      font-weight: 800;
+      margin-top: 9px;
+      letter-spacing: .2px;
+    }
+
+    .table-card.selected .table-status {
+      color: var(--red-2);
+    }
+
+    .payment-method-note {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* ============ TABLE PHOTO MODAL ============ */
+
+    .table-photo-modal {
+      display: flex;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(8, 6, 4, .88);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity .25s var(--ease), visibility .25s var(--ease);
+    }
+
+    .table-photo-modal.open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .table-photo-modal img {
+      max-width: 94vw;
+      max-height: 88vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 16px;
+      border: 1px solid rgba(205, 163, 85, .4);
+      box-shadow: 0 25px 70px rgba(0, 0, 0, .6);
+      transform: scale(.92);
+      transition: transform .3s var(--ease);
+    }
+
+    .table-photo-modal.open img {
+      transform: scale(1);
+    }
+
+    .table-photo-close {
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      width: 44px;
+      height: 44px;
+      border: 0;
+      border-radius: 50%;
+      background: var(--paper-2);
+      color: var(--black);
+      font-size: 24px;
+      font-weight: 900;
+      cursor: pointer;
+      z-index: 10000;
+      box-shadow: var(--shadow-lift);
+      transition: transform .15s var(--ease);
+    }
+
+    .table-photo-close:hover {
+      transform: rotate(90deg);
+    }
+
+    /* ============ FORM ============ */
+
+    .form-section {
+      display: none;
+      animation: fadeInUp .4s var(--ease) both;
+      background: var(--paper-2);
+      border: 1.5px solid var(--line);
+      border-radius: 22px;
+      padding: 22px 18px 28px;
+      box-shadow: var(--shadow-lift);
+    }
+
+    @media (min-width: 1024px) {
+      .form-section {
+        padding: 32px;
+      }
+    }
+
+    .field {
+      margin-bottom: 26px;
+      animation: fadeInUp .4s var(--ease) both;
+    }
+
+    label {
+      display: block;
+      font-size: clamp(17px, 4.2vw, 19px);
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: var(--ink);
+      letter-spacing: -.2px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      min-height: 62px;
+      padding: 16px 18px;
+      border: 2px solid #d8cca4;
+      border-radius: 14px;
+      font-size: 18px;
+      background: #fffefb;
+      color: var(--ink);
+      font-family: inherit;
+      font-weight: 600;
+      transition: border-color .2s ease, box-shadow .2s ease, transform .15s ease;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--gold-2);
+      box-shadow: 0 0 0 5px rgba(205, 163, 85, .28);
+      transform: translateY(-1px);
+    }
+
+    input[readonly] {
+      background: #f2ecd8;
+      color: var(--ink);
+      font-weight: 800;
+    }
+
+    .date-note {
+      color: var(--muted);
+      font-size: 14.5px;
+      margin-top: 9px;
+      line-height: 1.55;
+      font-weight: 500;
+    }
+
+    /* ============ SUMMARY ============ */
+
+    .summary {
+      position: relative;
+      background: linear-gradient(160deg, var(--black), var(--black-soft) 60%, #1f1a14);
+      border: 1.5px solid var(--gold-2);
+      padding: 26px;
+      border-radius: 20px;
+      margin: 26px 0;
+      box-shadow: var(--shadow-lift);
+      overflow: hidden;
+      color: var(--cream);
+    }
+
+    .summary::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(340px 160px at 100% 0%, rgba(255, 47, 146, .22), transparent 60%);
+      pointer-events: none;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+      font-size: 17px;
+      color: var(--cream);
+      font-weight: 600;
+      position: relative;
+    }
+
+    .summary-row span {
+      color: #c8bda3;
+    }
+
+    .summary-row strong {
+      font-weight: 800;
+    }
+
+    .summary-total {
+      border-top: 1.5px dashed rgba(205, 163, 85, .55);
+      padding-top: 16px;
+      margin-top: 14px;
+      font-size: 23px;
+      font-weight: 900;
+      position: relative;
+    }
+
+    .summary-total strong {
+      color: var(--gold-3);
+      font-size: 26px;
+      text-shadow: 0 0 18px rgba(255, 178, 56, .5);
+    }
+
+    /* ============ PAYMENT ============ */
+
+    .payment-box {
+      display: none;
+      position: relative;
+      background: linear-gradient(160deg, #fffaea, #fdf3d6);
+      border: 2px solid var(--gold-2);
+      border-radius: 22px;
+      padding: 28px;
+      margin: 24px 0;
+      box-shadow: var(--shadow-glow);
+      animation: fadeInUp .35s var(--ease) both;
+    }
+
+    .payment-title {
+      font-size: 21px;
+      font-weight: 900;
+      margin-bottom: 14px;
+      color: var(--black);
+    }
+
+    .amount {
+      font-family: 'Space Mono', monospace;
+      font-size: 38px;
+      font-weight: 700;
+      margin: 10px 0 18px;
+      color: var(--red-2);
+      letter-spacing: -1px;
+      text-shadow: 0 4px 18px rgba(255, 47, 110, .3);
+    }
+
+    .payee {
+      background: linear-gradient(135deg, var(--black), #211c15);
+      color: var(--cream);
+      padding: 15px 16px;
+      border-radius: 14px;
+      font-weight: 800;
+      font-size: 16px;
+      text-align: center;
+      margin-bottom: 18px;
+      letter-spacing: .2px;
+    }
+
+    .qr-container {
+      position: relative;
+      background: #fff;
+      border: 1.5px solid #e5d8ac;
+      border-radius: 18px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .qr-container::before,
+    .qr-container::after {
+      content: "";
+      position: absolute;
+      width: 26px;
+      height: 26px;
+      border: 4px solid var(--gold-2);
+    }
+
+    .qr-container::before {
+      top: 8px;
+      left: 8px;
+      border-right: none;
+      border-bottom: none;
+      border-radius: 8px 0 0 0;
+    }
+
+    .qr-container::after {
+      bottom: 8px;
+      right: 8px;
+      border-left: none;
+      border-top: none;
+      border-radius: 0 0 8px 0;
+    }
+
+    .qr-title {
+      font-weight: 900;
+      margin-bottom: 14px;
+      color: var(--black);
+      font-size: 19px;
+    }
+
+    .qr-loading {
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 600;
+      padding: 28px 5px;
+      background: linear-gradient(90deg, #eee 0%, #f7f1e0 50%, #eee 100%);
+      background-size: 600px 100%;
+      animation: shimmer 1.6s linear infinite;
+      border-radius: 12px;
+    }
+
+    .upi-qr {
+      width: min(280px, 100%);
+      height: auto;
+      display: block;
+      margin: 4px auto 0;
+      border-radius: 12px;
+      animation: popIn .4s var(--ease) both;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .upi-id-box {
+      margin-top: 18px;
+      background: #fff;
+      border: 1.5px solid #e5d8ac;
+      border-radius: 16px;
+      padding: 16px 18px;
+    }
+
+    .upi-id-label {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--muted);
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .upi-id-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    #upiIdText {
+      font-family: 'Space Mono', monospace;
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: .3px;
+      color: var(--ink);
+    }
+
+    .copy-upi-button {
+      border: 2px solid var(--gold-2);
+      background: linear-gradient(135deg, #fffdf7, #f6ecd4);
+      color: var(--ink);
+      padding: 11px 18px;
+      border-radius: 999px;
+      font-size: 14.5px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .15s var(--ease), box-shadow .2s ease;
+    }
+
+    .copy-upi-button:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-gold);
+    }
+
+    .payment-note {
+      color: var(--muted);
+      font-size: 14.5px;
+      font-weight: 500;
+      line-height: 1.65;
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    .pay-button,
+    .book-button {
+      position: relative;
+      display: block;
+      width: 100%;
+      text-align: center;
+      text-decoration: none;
+      background: linear-gradient(135deg, var(--red-3), var(--red-2) 45%, #8f151c);
+      color: white;
+      padding: 19px;
+      border-radius: 16px;
+      margin-top: 16px;
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: .3px;
+      border: 0;
+      cursor: pointer;
+      overflow: hidden;
+      box-shadow: 0 14px 32px rgba(255, 47, 110, .4);
+      transition: transform .15s var(--ease), box-shadow .2s ease;
+      animation: pulseGlow 2.6s ease-in-out infinite;
+    }
+
+    .pay-button::before,
+    .book-button::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255, 255, 255, .45), transparent);
+      animation: shineSweep 2.6s ease-in-out infinite;
+    }
+
+    .pay-button:hover,
+    .book-button:hover:not(:disabled) {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 40px rgba(255, 47, 110, .5);
+    }
+
+    .pay-button:active,
+    .book-button:active:not(:disabled) {
+      transform: scale(.97);
+    }
+
+    .book-button:disabled {
+      opacity: .5;
+      cursor: not-allowed;
+      box-shadow: none;
+      animation: none;
+    }
+
+    .book-button:disabled::before {
+      animation: none;
+    }
+
+    .upload-box {
+      border: 2.5px dashed var(--gold-2);
+      padding: 22px;
+      border-radius: 16px;
+      background: #fffefb;
+      text-align: center;
+      transition: border-color .2s ease, background .2s ease;
+    }
+
+    .upload-box:hover {
+      border-color: var(--red-2);
+      background: #fdf8ea;
+    }
+
+    .file-name {
+      font-size: 14.5px;
+      color: var(--ink);
+      margin-top: 10px;
+      font-weight: 700;
+    }
+
+    .book-another-button {
+      width: 100%;
+      border: 2px solid var(--gold-2);
+      background: var(--paper-2);
+      color: var(--ink);
+      padding: 18px;
+      border-radius: 16px;
+      font-size: 17px;
+      font-weight: 800;
+      cursor: pointer;
+      margin-top: 18px;
+      transition: transform .15s var(--ease), box-shadow .2s ease, background .2s ease, color .2s ease;
+    }
+
+    .book-another-button:hover {
+      background: var(--black);
+      color: var(--gold-3);
+      border-color: var(--black);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lift);
+    }
+
+    .error {
+      display: none;
+      background: linear-gradient(135deg, #fff0f0, #fde7e7);
+      color: #b00020;
+      padding: 16px 18px;
+      border-radius: 14px;
+      margin-bottom: 18px;
+      font-size: 15.5px;
+      font-weight: 700;
+      border: 2px solid #f3c6c6;
+      animation: fadeInUp .3s var(--ease) both;
+    }
+
+    /* ============ SUCCESS ============ */
+
+    .success {
+      display: none;
+      text-align: center;
+      padding: 34px 20px 30px;
+      animation: fadeInUp .45s var(--ease) both;
+      background: var(--paper-2);
+      border: 2px dashed var(--gold-2);
+      border-radius: 22px;
+      box-shadow: var(--shadow-lift);
+    }
+
+    .success-icon {
+      position: relative;
+      font-size: 66px;
+      display: inline-block;
+      animation: bounceIn .6s var(--ease-bounce) both;
+    }
+
+    .success-icon::before,
+    .success-icon::after {
+      content: "";
+      position: absolute;
+      inset: -14px;
+      border: 2px solid var(--gold-2);
+      border-radius: 50%;
+      animation: ringExpand 1.8s ease-out infinite;
+    }
+
+    .success-icon::after {
+      animation-delay: .5s;
+    }
+
+    .success h2 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 32px;
+      font-weight: 900;
+      margin: 18px 0 8px;
+      color: var(--ink);
+    }
+
+    .success > p {
+      font-size: 17px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .booking-id {
+      background: linear-gradient(160deg, var(--black), var(--black-soft));
+      border: 1.5px dashed var(--gold-2);
+      padding: 20px;
+      border-radius: 16px;
+      margin: 22px 0;
+      font-weight: 700;
+      color: var(--cream);
+    }
+
+    #bookingId {
+      font-family: 'Space Mono', monospace;
+      font-size: 21px;
+      font-weight: 700;
+      letter-spacing: .8px;
+      color: var(--gold-3);
+    }
+
+    .booking-confirmation-note {
+      font-size: 15.5px;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-top: 14px;
+      font-weight: 500;
+    }
+
+    .required-mark {
+      color: var(--red-2);
+      font-weight: 900;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 14.5px;
+      line-height: 1.6;
+      font-weight: 500;
+    }
+
+    .redeemable-label {
+      display: inline-block;
+      margin-top: 7px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .3px;
+    }
+
+    .redeemable-yes {
+      color: #1a7a3c;
+      background: #eaf7ee;
+      border: 1px solid #b9d9bf;
+    }
+
+    .redeemable-no {
+      color: #a71920;
+      background: #fff0f0;
+      border: 1px solid #e0b5b8;
+    }
+
+    .summary-redeemable {
+      display: block !important;
+      width: 100%;
+      box-sizing: border-box;
+      text-align: right;
+      margin-top: 8px;
+      padding-right: 0;
+    }
+
+    .big-group-message,
+    .table-unavailable-message,
+    .solo-visitor-message {
+      background: linear-gradient(160deg, #fffaea, #fdf3d6);
+      border: 1.5px solid var(--gold);
+      border-radius: 16px;
+      padding: 22px 18px;
+      margin-top: 12px;
+      text-align: center;
+      box-shadow: var(--shadow-soft);
+      animation: fadeInUp .35s var(--ease) both;
+    }
+
+    .big-group-message {
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    .group-phone {
+      display: inline-block;
+      font-size: 21px;
+      font-weight: 900;
+      color: var(--red-2);
+      text-decoration: none;
+      margin-top: 6px;
+    }
+
+    .table-unavailable-message {
+      grid-column: 1 / -1;
+      width: 100%;
+    }
+
+    .table-unavailable-title {
+      font-size: 18px;
+      font-weight: 900;
+      line-height: 1.4;
+      margin-bottom: 10px;
+      color: var(--ink);
+    }
+
+    .table-unavailable-text {
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .table-unavailable-help {
+      font-size: 15px;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+
+    .table-phone {
+      display: inline-block;
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--red-2);
+      text-decoration: none;
+      margin-top: 6px;
+    }
+
+    .solo-visitor-message {
+      grid-column: 1 / -1;
+      width: 100%;
+      margin-bottom: 4px;
+    }
+
+    .solo-visitor-title {
+      font-size: 19px;
+      font-weight: 900;
+      line-height: 1.4;
+      margin-bottom: 8px;
+      color: var(--ink);
+    }
+
+    .solo-visitor-text {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    /* ============ RESPONSIVE ============ */
+
+    @media (max-width: 540px) {
+      body {
+        overflow-x: hidden;
+      }
+      .container {
+        width: 100%;
+        max-width: 100%;
+        min-height: 100svh;
+        padding: 12px 12px 40px;
+      }
+      .header {
+        margin-bottom: 18px;
+      }
+      input, select, textarea, button {
+        max-width: 100%;
+        min-width: 0;
+      }
+      input[type="tel"] {
+        font-size: 16px;
+        letter-spacing: .3px;
+      }
+      input[type="date"] {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        display: block;
+      }
+
+      @supports (-webkit-touch-callout: none) {
+        input[type="date"] {
+          width: 100%;
+          max-width: 100%;
+          min-width: 0;
+          box-sizing: border-box;
+          display: block;
+        }
+      }
+
+      .table-card img {
+        height: 150px;
+      }
+    }
+
+
+  </style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+
+  <!-- HEADER -->
+
+  <div class="header">
+
+    <img
+      class="brand-logo"
+      src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/7QCEUGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAGgcAigAYkZCTUQwYTAwMGEyODAyMDAwMDExMDUwMDAwZjQwOTAwMDA0MDBjMDAwMGIxMGQwMDAwZWUxNjAwMDA1ZjIxMDAwMGVjMjEwMDAwYzgyMzAwMDBiZDI0MDAwMDQ2MmUwMDAwAP/bAIQABQYGCwgLCwsLCw0LCwsNDg4NDQ4ODw0ODg4NDxAQEBEREBAQEA8TEhMPEBETFBQTERMWFhYTFhUVFhkWGRYWEgEFBQUKBwoICQkICwgKCAsKCgkJCgoMCQoJCgkMDQsKCwsKCw0MCwsICwsMDAwNDQwMDQoLCg0MDQ0MExQTExOc/8IAEQgAyADIAwEiAAIRAQMRAf/EAPMAAAIDAAMBAAAAAAAAAAAAAAAHBAUGAQIDCAEBAQEBAQEAAAAAAAAAAAAAAAIBAwQFEAACAgIBAgQEBgMAAAAAAAACAwEEAAUREhMUIDEzEBUhIgYjJDAyNBZAUBEAAQMBAwYKBQkHBAMAAAAAAQACEQMSITETIkFRYXEEEDJCgZGhscHRICNScvAFMDNAYnOy4fEUU2OCg5KzJENQopPC0hIBAAEDAwMEAwADAQEAAAAAAREAITFBUWFxgZEQobHRIMHwMOHxQFATAAEDAgUDBQEBAQEAAAAAAAEAESExQVFhcYHwkaGxECDB0fHhMEBQ/9oADAMBAAIRAxEAAAFMAAAAAAAHJwGixnQ0xmQ51wAAAAAADnTDnEwAAABII9901Ml686G5jUq+q6zwgn3RXAmWfdZXSynNLCayZfUt55gaAAc6Yc4mAAAJ3hp2ZGzcFcWULbsKXDdjIa8uWpKyq5zXp5obYaZGAZNdzvwRbYttJiJf0HaADQ50w5xMAA0cJAlv7q0teeyVx75ypzlyxMNeesJjY/NlY/cUp5VTIzTce0fNeMbFLLuOXTER9GqKeBYV/SBzphz6TATy9bGOl8avpElMJr7Ozhdo1OJ0+XmtTW5NmlbRanMlvW5rS1mmX+1xMvJ2riHlbvmPT8uuSpGHgevPyc6Yc94mOeNVjljSO3GhKs/FdILHIvDcx2b09C2C20P9H4U1doaXUG6xP0Oxb523hN5zUyVctqi6enl9C/oG1g+s0DnTDn6QmOeNVjNPLucaiYFirSszjsTL3qVtEuqduT+jfnL6IwvaWzq9Zl6on6KwmST5VmavamTcsivt6/y+hTdGxg+sUTnTDn6SmA9T3ZmdquXq2a60sJ2rrpj4vGc8tVvc6pWRriox3H0Ko5nJTm9GYoO+zv8AbU8F2YmuUnvVVMVSx9njuvj6udMOeoTABpHuiH15fqr3Ga70owcxYTp8GCOt0+muu91SR913I1wKC/it7Ab/ADbx9ddjtfhPsHWLC+e9x0hkzqYX99Q94HOmHPflTABonSl9n5vqYpjLyte3bzl569PkWFpQ1dbeeNj5qhed3GR0s63PJvtTmK2euu98L5Kv2arL7n6s1ndLmrwc6Yc/b46YALSLFJ9PM2D23zMbMU+w53c80kmaoj1t+vLpR+9nil1FNJyr3DaShmtUue0e5JMUrbeoDOg50w564JgAAAACyrTHLQV3Ob2bqft52ra6ludQd+teTtMgFSAaAAABzphziYHOCYHOCYHOCYHOCYHOCYHOCYHOCYHOCYHOCYHOCYHOCYHOCYc4H//aAAgBAQABBQL/AIha9oqxutatX+lVoNs5McZqlhYqGMjIR3aAxzO6+ytUR32b/oEACTmxVZXn9xa5ZNukytOjudpm9odJaFLVZfo1SYrY1VAE0Qm1cqWh1tJCi3qGkzS0eiNpb8Q2tQZYgh6Z/ZUg24JSE1mr2SY0TIP5jJ58vY7O1Sq4W7rDn+QJwdzWZk1adjIr2Ex4wWxGiZ3L9oaKvqUtSSp/Y1uxmoVrXqvjUrRrsgfFMs7JNSLG0c7IGZyjViwR6hA49cAXEjlbcOVirNe+Mi2llzX+LxNVNALtybJefU16zguaNisohOvXVpzE7LZCZ8TlRiQl+0Ywddx39lUWkrPuL2JxFgllMcjlTcEY+GakdknxQVNMR5tFpDzIqMfkjITp7jSXSVNg9vsu5OsORdZ3BhLxJz+zUFlVPau7WfsGv37QpquPVyS3M2hyVkuo9Tsucsh4Q9xYYECEnLq5p8tHZHVxVytexyhM9xd8OtCZcVNfFndM6wtT0u+dlmtKTs7T27DJVYncFxqv7GzLl8K62GErKhai0pSoxttFXLVwrE/Gurum38PHGazWnXbqomRv2fENCfDI1Uc2dn7Vz3JGYylT6B3cREzxYCBmc1nubSfzn/Rlj9QrXO7bXd5c3tabGL0s4Q9M/FG1erG3CdTtA2sCg6y2B8s1YSJbZfQFkOobF03iqyKW7WwLToT99a8aBoJkR3X0dcX92uLkpjpnnxCJuSus3YOZ5NYlTWfIq55YTC82bH9jW8d4y6poKiZ3k/fRnn4Uvc3nuUfWMrLiWbieWqnrXWLpZeHpdSNvZQkWq+VIHLywWfxgpjDnkvxBPK9Z7mV6ouPa1hSdAY6spe7vP50fUfVNWGnskwplceBD12Xvar2Rnhczz5NYSROL1IcvOE43Q8o1xcOOOmaE8Hup5Kj65VLg91PLKPqPrT9dt7qP4IHqO5PLdePSmq0QVNutOXSXJ/FaTZkJMabGpOFn0E0u4UXHxjJY3IEhzs525zs5C+M7WCxo4zrPBMxhJ9opnnCaoYdXOa5rIPIM8T8wcUF1Hi9ew8+kYnTgY7BcJbSrw9tm1Wplf2a7AVdp4YTt9Ne9svExrxBVatsUWT2qBS2jSVYV8qUeWqUpNutYGD1BnjGxE+RRdMMNdRRb5xYoJObNjw5bmqRFqZ/P3P8AZ+DVDNSOJyv/AEdT72797WLkUUQ4bvvVEzaqaVPcLadoD8ixkht1Sei5TCorTdMt2OvZZZt4kq+n97Z0mte+kaAxwz4EfSpHXT11Fym7v3tSX5FC/Fsdnal7tVa7ZggK0T9fKspGNm0ordvNVIqy9eYbB3ECtZkMzsrM42wbckxzvngnEYFo15G0sxhmbSrbWEBq7S67dgIywfX8Qe0UcD5F8dNvbC0ILiJIcg8GDPPCsnJjjNfUGxl+pFeZoRCKFUX5dqwmBGSyNezgxJeScxnUOC3ibey8QB/x8ndiBlsz8EJlpWBCsKT7hQ005Z7dkKtrs5Ytd3Pm7JKvalMWbUvyu1dUJNzsl8BIKC0BhITkMmM70THnieMYwmTqUclsLsydJUWYb21kNNhRBcy2qaorApx3f00665ObBHbNbSD95Vk1fCkYqRM851dNWJ4zYz1ISztltekgieMc82z/AKU2zkMO4Zh/xP/aAAgBAxEBPwH6rHpxxEwrWxEkIP6OKJ3I+kToUQiCiEQdJlcnAysQnXXeiTCiI1pyknHQirRMSneKbmnYV0Ig6fQN5AQvKOMJt65ybejpC0blOG5OadPHCdygmBc5U1zlTWkrmnehzdyLY08dPgr3XhhjWc1vWU35PLyZqsBaLRsm2Y04aQqdCiXBtuq4uMZrQ3HpNy4XRocHdZsOqEYkvjHcEDRLCRwfOtARbcReCdGm5MfSJAPBxEiSHPunpVR1EEgUMD+8dPin0aFltSKgDiQYLTDhvQ4LSfc2vZ0w9kdoJX7G88mzUH2HA9hvVSmWXEFp1ERx/KIu4PfjSbdqu1KiadMVHsyjnNbZkwG5928Km8scHDFpkdCrv/1THOgfRl2kYCehMrMqh9h4nCYw1Y4r5HGe/VZvGu+5U3AftEnlNIG02gjOQbqyjt82R2YqlD30gG6WAxzoN5PiqzMi6o2Nx1CZBHRcuENcG0S502myNgJuHjx8PA9QBe40mzGOFy4WGMpBlOxTt2S8E51wkSBJxRyQAFpxdfaLW3HVyiMNyqcIabM03S0RaL8RomBo7lS4cabXBtJkP5U2nE6Nao8MNJ0spsaYjnG7pcqnCQ9xLqQk42XEeafWaWNbYfTDZMzbknSQYvVFzWOY9jxLYkPBZOg6xhtXyoQ57XRLLIzxeDfJvC+WAA6lGFi7dPG/hdRwAtQAA2664dp4ptFToxVkqyU0RejhKJlMqOZe1xG5V+EurWbZmyImIu9IGE0xKBidqBxGv6n/AP/aAAgBAhEBPwH6gTdcnGRKcZiAiZi43KZcEHSY1YqfSLoxw1oXTGHxgmtJwEbVktZJTWNdhKNI6DO9C7C46k1waNZKHoG/SicZ0dqa3nHqQdOIgb0HCDdF070069qa4XwI2a5XLxEdKwO1Nk3k9HoOg3zemtk7u9TNrUFT80QGgxpTcAdCshoMKn4J4tDa1XHE3eKaRgNHEUSDCZcCU7NbCbhKqAD43IclVDHTim3BpXO3hEROqU1wNw4ii6YujFU+QelVTd8bEDmKt4eSHJVYwuaFzhuRxdv8U106COMnaB2lB9nWZVudAuQefyhS74hBzj8BWzvjYFlDsQq7Fdr60D8Dj810D9Fq24oeBUI4dK1ryCvJ3Sp7U3u4wL9xQBcb1Z6vjUgydIPQrAmJwRaCMUKY/UKyDpB7EW4/qmDDeqWnfxho4osgqMHYfGpFwxUgaMU4g5qbcYhNbE6kQg2PSc2U9sxsKc2Y2Itkg6vqf//aAAgBAQEGPwL/AITLECxAOOviFUgWDBxvzsPqZsNuGnAbuJzIE5zSe0FEHEGCo/hfh/RAa1Z0SwdX6JjPaPZp7FTaGgGdV9lqDWiScFD2xq1H50NaJJwCAeMcCMFYPJqfi0eSyzBc7le9r6U+22y10ETcepGo+vYnFojH42IU2Fz2i7kkoOFCrIvwd5qxUe5l84EeBRfTq5UxAwuVqwTTDQARfvWWfieSNQ1q7kNub59KcWC5vfq3qDiPmjYaXQJMIEXEItfyucNR9oI2nBtNt+U2blY4Mw1iMXm5nWv9RWJ+xTzW/mr8m07c4+JV1o+639FyX9Q81Dj/AHN/VSwMJ+wbJ7EDSqWx+7rY/wByNGra4PUcIv26nYKySMn7ezdrQpU7nxds2layVDxZPzOtjuUPFZWkRaOnQfeGtZWsfWG5rG6fPwQHCTZnkUBMa852vYrDYJGDG3Ab9S5Vhvstu/NEwTGKIc8UwBMlfTOP9qgOtDQVpGrQoJyjdRx61ZN59h2PR+SzZrUPZPLYNmsLL0HB1rEE/HUrbjLva8GhTg0ckfMFj76p13GPsqafrG/9h0aehZWpNupc2n+Wvu3rL8IM1f8ArTGoL1IAOGV5x3at+PETVYansibp2osAbTpnmtGhUwWhwc6CHCReqZZNl+g70+4DOIgYXKy8Co3UVNNpaNI27FIkbVYdy+a64T4TtWWaM8/S0xg4Toi61GpNr0iXCILdI6O9TVzB7POPkmtpwHtxAv6zr9J2Tbas4q8FpHQU91U+qpjlHH81+1VBj9E32W695WSYcwco+0fJCGtc4ggWjAnWrLqJZs19ia0gNc6GmL8dN2xDguSJdHL2xOPwE1mNl/hK4MfshFhuBe6d2KdwcU7Lmznbts9+Kc1rGvfBGcYwN8bSgzJlrjdBMX9W5OkAHTGEjFClUPuO8Css36J59a0aD7QTbBhjxyhj8QoAJKAeIkT6JAgtdiNPQUGOGdqfj0HyVPgdO6m3PqbtXSVYbc5/Y34uQa3Eqm3GKg7CqR1jzTiLjanxX0bbcRa+PNBxvOe4/wBpXB/u2dyc9txDp7EYY0PPOTTqDz1NKoH3PBWBpcR2og3EIh95Ga7btTuC1c4Mzma7OjqRa0CfZb4lX3AYD0GM9ogLMqNdvzfNGpWECm0kXg3/AKJ9d3KruLtzRgnP0YN3BWv9ytcNjVS97wKoe4PFHc38IV4InBCPpq7f/FSOLt50JjRg0AdSn/dpi/7bRp3gIwJjFPOqlU/CqWyx4J/vu70KvPZmv80J5L813T+aFapZzHxm/u3YouZEOvx0rOeOi/yRGo+hc+0NTs781aiyahsXbTHmqhynqhSDGs23BNbrICjQzNHQjXPIpg/zOIgNG29UGnFrGg9SbUGENa7Y4COojBMa6IZ+iq2g43UhmtLrgzYs2ekEd6aPe/AU9rYioL5T6n7xppU/tOfddsCG4diyg5FTOB7xvBTqZwqNI6VGkL32dv6qnUAk3NPd4LlQNQu9CKphtk6YvUtL+hwPguCURyRV64v8URXDQTVFmNQBTScBJROskqm3RRpMfH8SrJteXFYOD7TDusyOo8Vf+l/jHEz3n/4+J50UIpUxqzQXHeUelPb9gu/mZp6QmH7QVTf3qlYAOcQ6dU/mn0zgKj8NhlXl3SQFFPCNc+hcYXyeT8ZoVP3/AAR9x3E61N1KhEOLebsUNLjvMph02iP+h4q/9L/GOJvvP/xodC4QS6oPXEZjy3mhEBxd7xkpx10qvZCG8J3R3L+Z3guFR7b46vROXizZukTfKzbA/pnyXBqzDLRVF++7wXuuB8E3bIThqJVT7qh+EoJnvn8B4uEf0v8AGOJvvP8A8aHQuE/fu/C1FH7qt3hMGtwT9/cqe2T1lOqOuDqjj1mFzeln5L1UWY0a/QzWl25OY8QWm02/p8057qmdUpwW4wYQdqMpzrMWlLc2Q1uA5ggYrPMrlQsVyj2rHsXKWKNmqb7znFS42jvURzXN/uxQdZmOhTrVtr5c2nZDeiN6psYMIJ7/ABWcCN/oA4xoWbDG7As55KzabjvEDw4muyriHCbm2cd8rJsBuglxMzKaw4Xk7grGRvibmt8UGtYWEPB0bdSLBTtEuJJmNyy8cwOs70wWLBDp13FZWzJhznazZlCnkb3a2t3oBogPbMaig4tLSJBIcb403yvV1/wu7oQY6M7kuwB8lfTcN2cOyVmvIWeA8bR6LTFoDEYT1LKtpDRcIHK2rNptG+T5Kzpe78S4OzQ91noiO8hNqtbMNIfuxBTfdch92O88WrarFsBuTGfogRetf5I/d1P/AGVHp/CVT9w96vESXEbjgqOvKN71Q/n8EWzn2SydrcOu5OBaCyznAic6bvFOp0mxZ5V8ifRAF5NwCyQIBzcdkK91uobm80DbGJWc0l1mWnQNfSmOa5rQwaZmZnyVSDhBO7Sm+65WmNkWAJkC+9W3wBIETJv4ogzkm3RfoQVkYltQdMlUy5hAbMm72TtVP3D3rXZLgNwRdZslpiMVZswKJIWTPJqHHU7R0Ko4XWnF5m4fonuN5cTPogtJDheCE5wNk5l42wpMkp9V5DRFls9vgnZOubGizd0aEKeTdUzYJcYnvVpnqyDm6YX0gHQEMpVtAaFivpn9bvNYr1dSzOI0L6Rp6Arb3S5BhpO0yQ7GcdCdfFN10nrbMdSNVjmuY+Jg4O3bUN470wa6ngUd3oiTZB06lkmUrTdbrsNg81etJVwhXFYSr7lUm1mNkBsSb9qZFrObNl0SOq5ZSfWwHlv8MmJVS1bzGzDMTeqZFoZQHNfc4QoAkqTdsWKvC0hBzYdBmDgrNRha4G0CMJ2go7vRAx4w0aVrOgIDkvODm+LfJetp3e228dKzHAuF417k8FlsVG2SJLUxtgNZTwbJOON5RkDJkRk9ERETEqpZ57bMzBCZaGc1tku9rUr3Z7sQLzuWa3JM9p2PQFmiTpc7E+Xerv0KLTiOMj5mXGSjUPNw3n8lZYYDNI0lONQC7SM09iLQ94g7HDwVoVBBE3hRlWX/AGT/APKtPqADY2fJWS556h5popgNBGMZ3WVYcZOgnuUjkvvCzTHzxDXRPFakTeSO7in+H38U+6U12ophBEg9hUqXGfqeT5t3ZxWDybuz/hf/2gAIAQECAT8h/wDiRgGBgqMCxfX0gzC0IELjuf8AjkE2VNzlu7UiRISyVCVUMAzla2k8ULUKDkYaKNkZqXuopGUB1ax9CKLojxku0qauuUIBATExL7U/BYA1Wpzp5Z6CWf8AKlB8BlaBlZKJW8O5rV78ZwDLv+lQFwwQxo/Zz1q+QJbxJFMohy0JpxUNgXdW/uo+sohyMzeDdoyBQK5JizUWWgJfIJlDWj5ogmYc2GZ0wUXIkCGrKLl3WpwIJGtuXb4OOtSip7sGe57RU2EMrA7H85pECERHImf8ToQaBMBTdL5HUSh4IRBnS2R+xqf/APIX4Ss9YB3ptyAWdy2S+OKL6W4ric0cETj7tFlcHAe/ok3IHhoDqBPtML9SnjqDBbxC4nakiItlhE5neKj9UIfAV/hzQyiQJp15n3ajUI6qvutSSwDDs/4UEltuW0cmzb5qCvejl20OWd5otUiuTdpbJ8dVMvmSATDgMWWU9MVEgaIfUi3uanzuEd3LzQIAuQLHV+6lqmQXuEEoa1YhG5bmPm2eKRCjESJHcvDSsUXKuuo2qN5Q+zPzNRuNTB5X7VXeFzc5zQ2+M0bBsbREWtOI1VzSoB4bovL1H73gqYi4Ng55f8EWqcWAxPV1fiKnJx0j+j/ilIKE7Cuk8nhbKKZEcm/6AQZf9qvRBPQYeKLahxUl4esNRL4IYbn9npRJkhETsX6ipBGLQLVjc0o5worSA6OPNQjAgggCjHajQaRDeDn7GjqkXGT6O9TiYLgkjvTyO28g9lSC0Vt6jCEysMA4GtgsxqMdy1PceRgdHFQzbPyPtfitDAaF8R77/lezCMI165eKi2gSIPzQj2w1pdJ0BveUKaQrhv6bnfaHa+4DQ06PdqNdRiFe6HaO9TDAspQgkQuyb9KRNTECVbASIHpTPh7ky3E42IYiozYWVswITzGal5H+6FdIEZhKjlxTGy2ZmbXUYdkUhUYYHENiwU+FQM4U1Hd1pVSCAhQQiLXSadXbCPvfD2qw7ANxWLrn/dh3qIHadCxtmpoloEtMSOBht2/E0y04AxE3L9ROKLCcQidtGL9R0q2CiF0sksq0s8VAW3BForL+lDV8AarwVIUQalx2fFTTlHy/SkSQAJowBqQlX+mIntZSn5ByP6CrBZD1HyNTg0hzeuJ6Stfxyr+a30Lnu/3SSAIk2Mqv5v8A4nyVbS0OxPke9MSThGybqOx8UbANocfu6q8UQSSINJzfLj8FN+Mlu+KlnaAq/T4oRrggMMkOkq3UAZlB6Z7RSS2XQtHnPerHtPuHr3z3K8heEpz1zzTP3Xy9CiAJSIJub0wbm9LFOKw371iRCbAQ9qCsehHjw07lCpAJQKBuxirdx/d91FwPhXg49h1Y/wAiafzeunQaRh4hRR18Yh6MRN7s0FaISgjV5z3pMQuC+5pMuUPDHqMVb16G97OzTGOHmDkG0xuqJa0a4wXG8szeod+4fqp84wDG7+4qylCOq26Jo3icCXe9LeXKyhPCFa4q3XbIQtsuxpFY5bIwFiy11al2pqONh+6wSy36XJPisWcQSlkk7LmSmsYNrG7BKtDT2g8KvbiuyW67SKD4VgW/dOisidxioXeXsz40EGKRICTJjN6Zl9J+1/f8HZ5A1wkE+bVhEcD8qvvQN26vTYM0gQU3WLwusRrvQkADI2LEHu1M/wBgzUNbY0Mgt0CNk1NGcJba1CxMB3a8XI8+lle6f7xX9rdRmDeDzUcuAA+QETsVlWEeKJRnC2UjuYd4rhr3GKgHX4DSDKHI2M9x4RNMegW6wN/isiEfyQVLSY3Zbzf8Lyi4Y+KWQcqyrr63rgAvnX8bj0yY75T3XxrQAJzvHNdZU4k+a+vQJWnOe1f1t9e9+RSbEsAtolprIUr+5UQmZngK/mblfz8KNsybdZ1IScdGKW5V6s/gthTXBtaHE0NGUdLXr2rTEIRa5ZxS7H6pn5NHMwfKfdcaDwtdAV0r/wCY9ZUwhmQBmaB1J2Z2O3iv427vefIp1h8r0wfzomshmI/Cri+msexTO3SzgGOlZtUxkfmgaAhmCFzvxH4Ow1wXzoVJRC0YhNFvJp5ofBYVgnN43pAsl4NMYpJgvnmKQUuaMG4NM01MvlP1WMss2UvET4tRw9qWlWdcv3TPL8qXBHk/dW6T2p2DXYuO7u0H6sZNNhMewjoeKfXTAzdG9M1ZSvVrA+EYu3YQW8aZqdIkEhMio70QhXgn4W4JBlhhw8Uww0wQdpn2KGTdpX2/1XkfTyMKjARDDBMQ3trHWmSCGCwSalWZZsGibAAHvNIjDscuidd6PosezMhdTpQWyagEgPuqftxoMACBcFNmdWgwtPfahnOroIQ6FWQopAggAvBY70HoTQtLDovpQErZYBRg0HanhEJjhKCl3SteM8/vKm9nAUxddDEzuXqZjjUe5QPmxP8AXtU0avifj6pSun4AqbhVANJuKfggWqNkYc1iN6n5FH9l7r/dCNaxcYv44p5RiWQYGULztV4zt30PSRnJVtWE3uYN0L24pVZPbgIhsxTC1gxMZ3XvX9nf0Pv+bVTcdFnYu70CLnS6dKvDMvwpOkBAYc1/C7rQgTtLQQm4/CpEYEc7DAOI1v2/Eh0MC6rgqcBk2SGbHSmTa5akZgbAWljFqEEDwtaR1Was8C9RIDjVQQwmBaQiOkM0AMx+sod1uGbkrSlK1i9re9LS+uYw2ZrSbFLnSpys+9ZDbBhIaJy1Z/NdTk1bmaXA6FWlESdRIzBbPijGtFlcL7EFDBkaMGGAu6INmmMC1iC4J0D800slKMLP3+I/VwCJNN4XIhhSxETMRQVkyJWmE2EYTeYzeCB1oXRmZkOxd75q1V6vEziWsZmKumkr7G0uSLXr4xj+moNIJ2T0AKRsdyZtita/UChlfN6kJSp1DvCJNYzrPpKRzojofFRxxK4LNDDoTUwMTHhtcEr5XWrz941Ei+RZnev4+2k3EADzuVEAtL8QhOwUKBm8F3prS5DASPAyzkmgFMGp8x7B90kSY3ia/UFOBLsZ8NK4CjRIaUu4LyGEaKmmL0cuLtyeKvlhpUUN065xUpkt4FrIBGo85EJLxcNHS1ICkwBL4KFYPuTrFin4c8E38UNmHcihdOher1K05XUk60N8ueULRcQzosZpS2/4iAJRecVapg2LemR5eDV8UHIl/wCzxQwS6AWV7XfuGpW5q9sf86Ul4HJizMG9z3oiVKC0mcl6ElJgshMpm/tSiSp2nhFzQqLxJLmZE18VIrGkSkySM/NREsnaCjY5y0L2wvPJ4O9S1ptX2sHzypK2upr9XzWYhR7emvSbN6Uwhi23+BEIwmEzShjavFQwtbz+r5VLGy6RuY0MUn1MArsSywHTSha10x8hUBdiGG3SGmISICzdpeJEZkvakoFCkwsaZWKKwaslIeZNMRSFnDLL8yfJX/RCyeaRVWkKMWaWf8pSQyM9zZ59GMoBiTOAnMFIlcrL3oh8Psg+akDt+qmBh95080gmk9tfamgWBJMO2dCmQLIyPJQpcMaB0Mf+MukgAteOXoUYgDF4wv8A/F//2gAMAwECAhIDEwAAEPPPPOOuuPPPPKPPOKcaQ7Y+/PKPPAGRsqWCFffKPJ4fwQuLEQINqOGi0YjncG1lN6Ok7zySWb5uS6KL66Q5+tXhbYz6PPc997HrpRel6PC/ekqGA8ohl6PN970FP2zYQt6PPT80cF+ojHH6PPPLyT2en/PPKMMMMMMMMMMMMIP/2gAIAQMSAT8Q/wDAG9FmsVvWlWE74qPyJegZM8VxpcEKDUpnk3rtDxFcL/gV0rTea1hlnCVZKzp0qbG5VoAG05SK3cgivBrxULBPP1+BNROuK7ld/VfSrWjbrZ8VJ9AVj+WsYuN8xWZq9bnpK7efQT9lfSvaxVz4KyeUeaJ2ZYd6Bf5egVqvNWdqr0c1FNXU/dfShPn0vcHw1j1O1qzIvqfLo04t7M9qtISO1mWwOtFoOENOq6Q+KtGoYvsN2IqxGYJpC4eCj0EEiCiciloAgMCBjYFQtwg1lhIlyryITYls2ye1XmOi+Hi9lJcuN++T1giTcTkgIdk+8U79hKRaYMCat6xrr7nDUEGCgsbyls9GGCkZwCGY0s02namJdh0vVnBcPQjmrTb9YPCkRZYjPuEnsrefZsw3ORRgU+dmdufwn1ZoEgqIadc1eka8HUBplURB6Q9kwpOK8CEv0Ihwit1UECHLiuIzUuoSvMtLnHNDELMLV1hjL0qTYIB9lCtCWr/WbhEL56JyAXU7QrTEURaeIQEkREW9ba1hpsAp7jmut6sAsaVfOLn7rS22vUmqxwfdLO10q8TnfirbekJDySeu51qbAooEpTeLe34jFZ1d8IqMdlQlCf8Axf/aAAgBAgIBPxD8VDLmljv/AIrxuq2moczfFMnYp0gqysZKAyTcz+U6y71BJW78MApCf7AqlBNn8DcEHjJS2ekwlvKUiB6Ay4KqEYcZ9SsDOL+v8g+l3aEfdaPRw+YU+mR/PXPwASUC7Uvu/C0PpF/wJAY9Ejbj29FAsTGhmtY8nT0bMNvQP3fPof6dqmn5P6p+FTC9ZNEwH0INLu6f9KcvoJLPco/oV/w/T6Obbun8Li0Hqg0anof3pxRP4iptFqUFztXb3UD0oAguqB6hCF7F18fhBU8VdG76yT+h9eoBalQHJNFj+KTkmoMV5cqY93ogj/xf/9oACAEBAwE/EP8Awm9A9+DNYzWHdm9KoSRZoM5lf+Ot1G6C4AqxMGIdgiBiSQGIIqCMisxNgTCoo8lcgecBZ6kXPdRRSt69LDyhbB9vjtV44OD2AhetGHSTYbrWOJVQIYKH0QBU74uL/wCoL56wLcpUoaQ3Snh0RvRigFbMrnjXchSPWe0iyoZ5LAJFsAsqHuTSLHiRdWDUoEMuVAORJZ3oMIeVGqpxQprrjLpBg1VxNtAaFkfkyyv78nRLZ8ykXR5iuo70YFWYLNhdIRJ4hzEGAjEGP8hb8LEI/QqbBBJnHgvG4K0g7StyjdZSLCJeZi5wuK4Kyz3GKoePyE+NutwQJ5oDDxZWS4IBBiuftXUBouohoA6EVAcb7fDPYKDs0E+wp9NYL94A6VU1LIQQz4fdQVSNp5sHlDBn/GavM9ovyDIwZnb7YmkyE/j1gdZfy+hpVaJer8tFgCqbKrCchcXsUMICmcUDcq7m7HCy09xUQDVxwdRC91uQsYXlF2ZmJ2HwCjz8kCpeDjXTWHzFwK4XxGRfYiJCSLHS6BBlXncjVlokuV2JsLZ++ZYcmNq30sCedZMDMI1JdMWa7dpOkrRyd3aIQQ+ll5QLDEBDWN+AqGQKp3Qw7q2oZKg36FY34peghiSsuwSKLiyOlZZwoRayEDc412TBrUSxFMbOqj+ApSeyHLEBROH4scDq3SaFZbXCKmFXh+EmwF5JPKVAfYA7kB66ENP4BgNEe4YVHGMKGcHJhMJ+4qIWRYFy3ovUcwFyRDn+5CsOTb5j/koWqceZcWIBUwUUX4g6j4lYlfsW6soDGKmJzIm7nxAnJdk42i3cemnEu/D4OENUw4D1WBPCTySopbgMESvCT8vgjGThpIa0IxRlpjKOD8qKkNRIjsRH+14QMyUCU5nG2CKyDBdxzVIhwai3tfjgGQkYxWj7oNHyUgAkWIngC4l8t2ZYFLk66aKrluEp4z2m6iVwhmN0D9Mj/qkxhGbplHWArfwCI87j6AXXkalNrpuJGqw42ghmVCExFxJd61Il+upEBud5GybhQ4jLsaESR0IuiWP4cTAnVrlNLElW7Yq0YBxwpQDYcIHBkchZgMvYdli6xBqSIcU2AJar0MzgHLW3ZVWSHwNiExnObmo88AScGyZOBcZguT0npH9nSRDEEQzHp5Ho0jbgeCEok3kxt3WdBkMSEMyg4BiQeuGyRLSTQiogohZjyK/dggj46XczwSjpgSiZAAid3oZ7IulXTdvYdkapF6m+HqQgQWIoUzgX9HsFSX86+rjECQ98aZS8WoO2x6JH+zwZRvCBVYtgqfyCpcF4pXkkS8vegKUChpbuNzaFBSID6VgyuIijMOUVKhZfkxLyUDgazKjLaBb3FOjwZqMH4Rz0XI/hqxCN0YWYjME+iTSG5fKBGk+uc3oXLGwcQ4YBxVPgOOLLuSJf1C0b0EchXYloQFcgOuVa57KloDcKQe2IfAE6kLJJVDkI9WHN/wBAxaQjgO4eaRQu4wBo64NJbZGnBMnJJIN3yABbT+ZhzVS9GwOXEYq+F8IF+uEuxXAX7FRAhQvmtCi2l3V9AXTHKU6MZk2I6mHKnY+w/moY+4I0vDSBRxh0Jr0zTZdfpy11AyBN50BRvDxnpb0WAiT1I+pmRR5szVM3MggJ/IkF8813oNXapWkQmp2DyinlyEMVUI27cSF39mT3w4YTvBk7mqfAWko4LtmAsNCBXO7Ch5beBfYjla9LCCQjxBVqF6MIXR1tlJxxAfwqhuHeUhz4+wasUBkmIZ8mOXpZOIDsGykey1cHQPij0zzUJooWxwElVKcNClvm3xR0CgOc4MT9hoHhRq8hUKxxdtoIPdRLGHRHzCoCy1eTjYZzbqGqe8apGUcu1LlqSxN1kYTQJ7Cdv9XyiZDNc4B5WVUTqhkvjNVZj0QUfn39IsQYJbqWBJT/ALywUBpihMWYsRfEWIIx2CyKZ1AXK5lGOQMhFThFDJDORSdZSr8rX2DPilQuMBYxUKwthaCAWygfSkW6IMqTKNBOlzIUDOSirFPFI1rQZQmbjsrQyZwCINtECOTWewwB2lGjQMt84R6ZPICNmxFQFIS+qtVomX9aEG2Q96cFrKiTrIMmAMMTXEyvzIQkIfzZqFjonfvVYAQAmyAERcQ1vBciSrkE5PzTCXTpAnYlBWJwLgYOJLCgew9lRGt5nhbSPyXlsF00VlGt/UE1JoUYEdnFHzA001F10Q1zAHggLV+I+nUtcNl3CcGnQBgAxkSTASWE4Kv2C1QLBVnFCYoI4BgBcqHlPRY+gK4OriJIcFRgRjhnN/QTaQAOYKXbRAw8D5xy1D2fBBo6ZmWiBLeVij2toSBJwAappoeQQruOlUXdWzdBJiEQ8M51R/xUyeVVm2sALfoFNYYOqrkFhMJeQ8+B4a7BWf6LxDakkCQ8tTJNDsGEYIAHAXV6NqBF1RYgzwpbD4gQMLK6vQw9wehgmqQZLc15CiXYNzu8gAVWmFJRcH0hKMrgqp5+gIXe8KFyMjIZN7XiiuOJHYjBQ0IFnxWSCQEiqQzzPdX8clfnHSQDAmX3cmo0nBfIST5BHFoj0FMXKY6FebDZCMSsU/vXbzAzT5hmExUWxUm6IXwQwk8+UJHBMf5QY+kI6GXOjWGAgMkOopCkzD6AF20aTA1SQm3iRmjQQY1GsTXBxslgiBkGKJl2MoLae0AkBWmBidBVCkEF0R64BGVyJmeyew3iG7UHcsBMzdgqpMOSKGlaRANjK6S9Hxfig5oWp3wYupq4B2Y1l/QTFWXH7E+SlHr2/LrYqpDGN3FvB/iiHJxZCHVAHUmgGy+Ajbk3M37TZxahHXGMM0w+Fl7NgIpSNSHr7cOEEdAJYiXURdUbE7Fl0ziHrNXmcwmaFzb48hhJvS1yeFVUmtQvCzIgaUQorQxBmdZeUrnWoNJ4kJvIzGseECa7HnORLmXKZQxu/ALxY/A22w3ZI+QMD2mYr/Cf99CgXWuVKAso3oknSMYZw3+BUxwJDARQgiQUwXoE7lqAvBRQnlUEAG0Di7pYUqik0NZHEELh6JUx/UsI7Ca+BhaC6FAJAX0z+AYp1dmAPTgMUqKLBBAYBwMkdXUtj+05hAPRKTMdFTsIRO3HkNQIhEkuTJJ/1CQM0AchpLNkol1q/SxYMBS6O05RMycrIPrJhAlSBSBRUBUK6ghu4J5jkCY6mX9CKyzYAjg9UdG0IcVYYHvj/wAZ0eCoCgGaTj6QT7QIJmdUN/4v/9k="
+      alt="Factory Bar Malad logo">
+
+    <div class="brand-name">
+      FACTORY <span>BAR</span> MALAD
+    </div>
+
+    <div class="subtitle">
+      Karaoke Nights • Music • Drinks • Good Times
+    </div>
+
+  </div>
+
+
+  <!-- EVENTS -->
+
+  <div id="eventSection">
+
+    <div class="section-title">
+      Select Your Event
+    </div>
+
+    <div id="loading"
+         style="text-align:center;padding:25px;color:#dcc9e6;">
+      Loading events...
+    </div>
+
+    <div id="eventsContainer"></div>
+
+  </div>
+
+
+  <!-- BOOKING FORM -->
+
+  <div id="formSection"
+       class="form-section">
+
+    <button
+      type="button"
+      class="back-event-button"
+      onclick="goBackToEvents()">
+      ← Select Another Event
+    </button>
+
+    <div class="section-title">
+      Complete Your Booking
+    </div>
+
+
+    <div id="errorBox"
+         class="error">
+    </div>
+
+
+    <!-- EVENT -->
+
+    <div class="field">
+
+      <label>
+        🎉 Your Event
+      </label>
+
+    <select id="selectedEvent"></select>
+
+      <div id="selectedRedeemable" class="redeemable-badge">
+        -
+      </div>
+
+    </div>
+
+
+    <!-- DATE -->
+
+    <div class="field">
+
+      <label>
+        📅 Event Date
+      </label>
+
+    <input
+      id="eventDate"
+      type="date">
+
+    <div class="date-note">
+      The nearest upcoming date is automatically selected. You can change it if required.
+    </div>
+
+    </div>
+
+
+    <!-- GUESTS -->
+
+    <div class="field">
+
+      <label>
+        👥 Number of Guests
+      </label>
+
+      <select
+        id="guests">
+
+        <option value="1">
+          1 Person
+        </option>
+
+        <option value="2">
+          2 People
+        </option>
+
+        <option value="3">
+          3 People
+        </option>
+
+        <option value="4">
+          4 People
+        </option>
+
+        <option value="5">
+          5 People
+        </option>
+
+        <option value="6">
+          6 People
+        </option>
+
+        <option value="7">
+          7 People
+        </option>
+
+        <option value="8">
+          8 People
+        </option>
+
+        <option value="9">
+          9 People
+        </option>
+
+        <option value="10">
+          10 People
+        </option>
+
+        <option value="11">
+          11 People
+        </option>
+
+        <option value="12">
+          12 People
+        </option>
+
+        <option value="13">
+          13 People
+        </option>
+
+        <option value="14">
+          14 People
+        </option>
+
+        <option value="15">
+          15 People
+        </option>
+
+      </select>
+
+       <div id="bigGroupMessage" class="big-group-message" style="display:none;">
+          Hey, you are a <strong>Big Group</strong> and we love it! ❤️<br>
+          Your booking requires a personal touch, so please connect with us on
+          <a href="tel:7631443144" class="group-phone">
+            7631443144
+          </a>
+        </div>
+
+      </div>
+
+
+    <!-- TABLE SUGGESTIONS -->
+
+    <div class="field" id="tableSuggestionsField">
+
+      <label>
+        🪑 Suggested Tables
+      </label>
+
+      <div class="date-note">
+        Based on your date and number of guests. Tap a table to select it.
+      </div>
+
+      <div id="tableSuggestions" class="table-suggestions">
+        <div class="small">Checking available tables...</div>
+      </div>
+
+      <input type="hidden" id="selectedTableNumber" value="">
+
+    </div>
+
+
+    <!-- NAME -->
+
+    <div class="form-divider"><span>🙋 Your Details</span></div>
+
+    <div class="field">
+
+      <label>
+        🙋 Your Name <span class="required-mark">*</span>
+      </label>
+
+      <input
+        id="customerName"
+        type="text"
+        placeholder="Enter your name"
+        required>
+
+    </div>
+
+
+    <!-- PHONE -->
+
+    <div class="field">
+
+      <label>
+        📱 Mobile Number <span class="required-mark">*</span>
+      </label>
+
+      <input
+        id="phone"
+        type="tel"
+        inputmode="numeric"
+        maxlength="10"
+        pattern="[0-9]{10}"
+        autocomplete="tel"
+        placeholder="Enter 10-digit mobile number"
+        required>
+
+    </div>
+
+
+    <!-- EMAIL -->
+
+    <div class="field">
+
+      <label>
+        ✉️ Email <span class="required-mark">*</span>
+      </label>
+
+      <input
+        id="email"
+        type="email"
+        placeholder="Enter email"
+        autocomplete="email"
+        required>
+
+    </div>
+
+
+    <!-- SUMMARY -->
+
+    <div class="form-divider"><span>🧾 Booking Summary</span></div>
+
+    <div class="summary">
+
+      <div class="summary-row">
+
+        <span>
+          Event
+        </span>
+
+        <strong id="summaryEvent">
+          -
+        </strong>
+
+      </div>
+
+
+      <div class="summary-row">
+
+        <span>
+          Date
+        </span>
+
+        <strong id="summaryDate">
+          -
+        </strong>
+
+      </div>
+
+
+      <div class="summary-row">
+
+        <span>
+          Guests
+        </span>
+
+        <strong id="summaryGuests">
+          1
+        </strong>
+
+      </div>
+
+
+      <div class="summary-row">
+
+        <span>
+          Price / Person
+        </span>
+
+        <strong id="summaryPrice">
+          FREE
+        </strong>
+
+      </div>
+
+
+      <div class="summary-row summary-total">
+
+        <span>
+          Total
+        </span>
+
+        <strong id="summaryTotal">
+          FREE
+        </strong>
+
+      </div>
+
+    </div>
+<div id="summaryRedeemable"
+     class="redeemable-badge summary-redeemable"
+     style="display:none;">
+</div>
+
+  <div style="
+    margin-top:14px;
+    padding:14px 16px;
+    background:#fff4e5;
+    border:1px solid #e6b566;
+    border-radius:10px;
+    color:#6b4b16;
+    font-size:13.5px;
+    line-height:1.55;
+    font-weight:600;
+  ">
+    <strong>Important:</strong> This amount is non-refundable.
+    However, the paid amount can be spent at the outlet.
+    
+  </div>
+
+    <!-- PAYMENT METHOD -->
+    <div class="field" id="paymentMethodField" style="display:none;">
+      <div class="form-divider"><span>💳 Payment</span></div>
+      <label>💳 Payment Method <span class="required-mark">*</span></label>
+      <select id="paymentMethod" onchange="handlePaymentMethodChange()">
+        <option value="">Select payment method</option>
+        <option value="UPI APP">UPI</option>
+        <option value="QR CODE">QR Code</option>
+        
+      </select>
+      <div class="payment-method-note">Choose how you want to pay. QR Code will generate only after you select QR Code.</div>
+    </div>
+
+
+    <!-- PAYMENT -->
+    <div id="paymentBox" class="payment-box">
+
+      <div class="payment-title">
+        💳 Complete Your Payment
+      </div>
+
+      <div class="small">
+        Amount to Pay
+      </div>
+
+      <div id="paymentAmount" class="amount">
+        ₹0
+      </div>
+
+      <div class="payee">
+        Pay to Foxy One Hospitality
+      </div>
+
+      <div class="qr-container">
+
+        <div class="qr-title">
+          📱 Scan QR & Pay
+        </div>
+
+        <div id="qrLoading" class="qr-loading">
+          Generating payment QR...
+        </div>
+
+        <img
+          id="upiQr"
+          class="upi-qr"
+          src=""
+          alt="UPI payment QR"
+          style="display:none;">
+
+      </div>
+
+   <div id="upiIdBox" class="upi-id-box" style="display:none;">
+
+  <div class="upi-id-label">
+    UPI ID
+  </div>
+
+  <div class="upi-id-row">
+    <span id="upiIdText">9930604295@hdfc</span>
+
+    <button
+      type="button"
+      class="copy-upi-button"
+      onclick="copyUpiId()">
+      📋 Copy UPI ID
+    </button>
+  </div>
+
+</div>
+
+<div class="payment-note">
+        Use your UPI app to complete the payment.<br><br>
+        The exact amount is already attached to the QR.
+        You don't need to enter the amount manually.<br><br>
+        After payment, upload your payment screenshot below.
+      </div>
+
+    </div>
+
+    <!-- SCREENSHOT -->
+
+    <div id="screenshotField"
+         class="field"
+         style="display:none;">
+
+      <label>
+        Payment Screenshot
+      </label>
+
+      <div class="upload-box">
+
+        <input
+          id="paymentScreenshot"
+          type="file"
+          accept="image/png,image/jpeg,image/webp">
+
+        <div id="fileName"
+             class="file-name">
+        </div>
+
+      </div>
+
+      <div class="date-note">
+        Upload the screenshot showing the successful
+        payment. Maximum size: 5 MB.
+      </div>
+
+    </div>
+
+
+    <!-- NOTES -->
+
+    <div class="field">
+
+      <label>
+        Special Request
+        <span class="small">
+          (Optional)
+        </span>
+      </label>
+
+      <textarea
+        id="notes"
+        rows="3"
+        placeholder="Any special request?"></textarea>
+
+    </div>
+
+
+    <!-- SUBMIT -->
+
+    <button
+      id="bookButton"
+      class="book-button"
+      onclick="submitBooking()">
+
+      Submit Booking
+
+    </button>
+
+
+    <div class="small"
+         style="text-align:center;margin-top:12px;">
+
+      Your booking will be confirmed manually
+      by Factory Bar Malad.
+
+    </div>
+
+  </div>
+
+
+  <!-- SUCCESS -->
+
+  <div id="successSection"
+       class="success">
+
+    <div class="success-icon">
+      🥂
+    </div>
+
+    <h2>
+      Booking Submitted!
+    </h2>
+
+    <p>
+      Your booking has been received.
+    </p>
+
+    <div class="booking-id">
+
+      Booking ID:
+      <br><br>
+
+      <span id="bookingId"></span>
+
+    </div>
+
+    <div id="successDetails"></div>
+
+    <p class="small">
+  Your booking is currently
+  <strong>pending confirmation</strong>.
+
+  Factory Bar Malad will verify your
+  booking/payment and confirm it manually.
+</p>
+
+<p class="booking-confirmation-note">
+  You will receive your booking confirmation and all event information on your email.
+</p>
+
+<button
+  type="button"
+  class="book-another-button"
+  onclick="bookAnotherEvent()">
+  Book Another Event
+</button>
+
+    <div style="
+      text-align:center;
+      margin-top:30px;
+      padding-top:18px;
+      border-top:1px solid #d7ccb2;
+      color:#756f62;
+      font-size:14px;
+      line-height:1.6;">
+      FACTORY BAR MALAD<br>
+      Karaoke • Music • Drinks • Good Times<br>
+
+      <a
+        class="instagram-link"
+        href="https://www.instagram.com/factorybarmalad/"
+        target="_blank"
+        rel="noopener noreferrer">
+        📸 Follow us on Instagram
+      </a>
+    </div>
+
+  </div>
+
+
+</div>
+
+
+
+<div id="tablePhotoModal" class="table-photo-modal" onclick="closeTablePhoto(event)">
+  <button type="button" class="table-photo-close" onclick="closeTablePhoto(event)">×</button>
+  <img id="tablePhotoModalImage" src="" alt="Table photo">
+</div>
+
+<script>
+let events = [];
+let selectedEvent = null;
+let tableSuggestionsRequestId = 0;
+let tableSuggestionsTimer = null;
+let currentTables = [];
+
+  /************************************************
+   * LOAD EVENTS
+   ************************************************/
+
+  window.onload = function() {
+  fetch('/api/getEvents')
+    .then(response => response.json())
+    .then(data => {
+      events = Array.isArray(data) ? data : (data.events || []);
+      document.getElementById("loading").style.display = "none";
+      populateEventDropdown();
+      renderEvents();
+    })
+    .catch(error => {
+      document.getElementById("loading").innerText =
+        "Unable to load events. Please refresh and try again.";
+      console.error(error);
+    });
+};
+
+function submitBooking() {
+  const payload = {
+    eventId: document.getElementById("selectedEvent").value,
+    eventDate: document.getElementById("eventDate").value,
+    guests: document.getElementById("guests").value,
+    customerName: document.getElementById("customerName").value,
+    phone: document.getElementById("phone").value,
+    email: document.getElementById("email").value,
+    selectedTableNumber: document.getElementById("selectedTableNumber").value,
+    notes: document.getElementById("notes").value
+  };
+
+  fetch('/api/submitBooking', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.success) {
+      document.getElementById("formSection").style.display = "none";
+      document.getElementById("successSection").style.display = "block";
+      document.getElementById("bookingId").innerText = data.bookingId || "CONFIRMED";
+    } else {
+      document.getElementById("errorBox").style.display = "block";
+      document.getElementById("errorBox").innerText = data.message || "Submission failed.";
+    }
+  })
+  .catch(err => console.error(err));
+}
+
+
+  /************************************************
+   * RENDER EVENTS
+   ************************************************/
+
+    function populateEventDropdown() {
+
+      const select =
+        document.getElementById("selectedEvent");
+
+      if (!select) return;
+
+      select.innerHTML = "";
+
+      const availableEvents =
+        events.filter(function(event) {
+          return !event.full;
+        });
+
+      availableEvents.forEach(function(event) {
+
+        const option =
+          document.createElement("option");
+
+        option.value = event.id;
+
+        option.textContent =
+          event.name +
+          " — " +
+          event.time;
+
+        select.appendChild(option);
+
+      });
+
+      select.onchange =
+        function() {
+
+          const selected =
+            availableEvents.find(
+              function(event) {
+                return String(event.id) ===
+                  String(select.value);
+              }
+            );
+
+          if (!selected) return;
+
+          selectEvent(
+            selected,
+            false
+          );
+
+        };
+    }
+
+
+function renderEvents() {
+
+  const container = document.getElementById("eventsContainer");
+
+  container.innerHTML = "";
+
+  if (!events.length) {
+
+    container.innerHTML = "<p>No events available.</p>";
+
+    return;
+
+  }
+
+  events.forEach(function(event) {
+
+    const card = document.createElement("div");
+
+    card.className =
+      "event-card" +
+      (event.full ? " full" : "");
+
+    if (!event.full) {
+
+      card.onclick = function() {
+
+        selectEvent(event);
+
+      };
+
+    }
+
+    // PRICE
+    const priceText =
+      event.price === 0
+
+        ? '<div class="price free">FREE ENTRY</div>'
+
+        : '<div class="price paid">₹' +
+          event.price.toLocaleString("en-IN") +
+          ' per person</div>';
+
+
+    // REDEEMABLE AT OUTLET
+    const redeemableText =
+      String(event.redeemableAtOutlet || "").trim();
+
+    const redeemableClass =
+      redeemableText.toUpperCase() === "NOT REDEEMABLE"
+        ? " no"
+        : "";
+
+    const redeemableBadge =
+      event.price > 0 && redeemableText
+
+        ? '<div class="redeemable-badge' +
+          redeemableClass +
+          '">' +
+          escapeHtml(redeemableText) +
+          '</div>'
+
+        : "";
+
+
+    // AVAILABILITY
+    const availability =
+      event.full
+
+        ? '<div class="full-label">FULLY BOOKED</div>'
+
+        : '<div class="event-info">' +
+          event.remaining +
+          ' spots remaining</div>';
+
+
+    // CARD HTML
+    card.innerHTML = `
+
+      <div class="event-top">
+
+        <div>
+
+          <div class="event-name">
+            ${escapeHtml(event.name)}
+          </div>
+
+
+          <div class="event-info">
+
+            ${escapeHtml(event.time)}
+
+            <br>
+
+            Nearest date:
+            ${escapeHtml(event.displayDate)}
+
+          </div>
+
+
+          <!-- PRICE + REDEEMABLE BADGE -->
+          <div class="price-section">
+
+            ${priceText}
+
+            ${redeemableBadge}
+
+          </div>
+
+
+          ${availability}
+
+        </div>
+
+
+        <div class="radio"></div>
+
+      </div>
+
+    `;
+
+
+    container.appendChild(card);
+
+  });
+
+}
+
+  /************************************************
+   * GO BACK TO EVENT LIST
+   ************************************************/
+
+  function goBackToEvents() {
+
+    playTouchSound();
+
+    selectedEvent = null;
+    currentTables = [];
+
+    const bookButton =
+    document.getElementById("bookButton");
+
+    if (bookButton) {
+      bookButton.disabled = false;
+      bookButton.innerText = "Submit Booking";
+    }
+
+    document
+      .getElementById("formSection")
+      .style.display = "none";
+
+    document
+      .getElementById("eventSection")
+      .style.display = "block";
+
+    document
+      .getElementById("paymentBox")
+      .style.display = "none";
+
+    document
+      .getElementById("screenshotField")
+      .style.display = "none";
+
+    hideError();
+
+    // Clear booking fields so the next event starts fresh.
+    const fields = [
+      "customerName",
+      "phone",
+      "email",
+      "notes",
+      "eventDate",
+      "paymentMethod",
+      "selectedTableNumber"
+    ];
+
+    fields.forEach(function(id) {
+      const el = document.getElementById(id);
+      if (el) el.value = "";
+    });
+
+        const guests = document.getElementById("guests");
+        if (guests) guests.value = "1";
+
+       const bigGroupMessage =
+        document.getElementById("bigGroupMessage");
+
+      if (bigGroupMessage) {
+        bigGroupMessage.style.display = "none";
+      }
+
+      const tableSuggestionsField =
+        document.getElementById("tableSuggestionsField");
+
+      if (tableSuggestionsField) {
+        tableSuggestionsField.style.display = "block";
+      }
+
+    const paymentScreenshot =
+      document.getElementById("paymentScreenshot");
+
+    if (paymentScreenshot) {
+      paymentScreenshot.value = "";
+    }
+
+    const fileName =
+      document.getElementById("fileName");
+
+    if (fileName) {
+      fileName.innerText = "";
+    }
+
+    const selectedRedeemable = document.getElementById("selectedRedeemable");
+    if (selectedRedeemable) selectedRedeemable.style.display = "none";
+
+    const paymentAmount =
+      document.getElementById("paymentAmount");
+
+    if (paymentAmount) {
+      paymentAmount.innerText = "₹0";
+    }
+    clearQr();
+    const paymentMethodField = document.getElementById("paymentMethodField");
+    if (paymentMethodField) paymentMethodField.style.display = "none";
+
+    const tableSuggestions = document.getElementById("tableSuggestions");
+    if (tableSuggestions) {
+      tableSuggestions.innerHTML = '<div class="small">Checking available tables...</div>';
+    }
+
+
+    // Scroll the customer back to the event list.
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+
+function bookAnotherEvent() {
+  playTouchSound();
+
+  document.getElementById("successSection").style.display = "none";
+
+  goBackToEvents();
+}
+
+
+  /************************************************
+   * SELECT EVENT
+   ************************************************/
+
+function selectEvent(event, keepCurrentDate) {
+
+  playTouchSound();
+
+  selectedEvent = event;
+
+  document
+    .getElementById("eventSection")
+    .style.display = "none";
+
+  document
+    .getElementById("formSection")
+    .style.display = "block";
+
+
+  // Update event dropdown using Event ID
+  const eventSelect =
+    document.getElementById("selectedEvent");
+
+  if (eventSelect) {
+    eventSelect.value = String(event.id);
+  }
+
+
+  // Set event date only when selecting a new event
+  // from the main event selection
+  if (!keepCurrentDate) {
+    document
+      .getElementById("eventDate")
+      .value = event.nearestDate;
+  }
+
+
+  document
+    .getElementById("eventDate")
+    .min = getToday();
+
+
+  // Update event name in booking summary
+  document
+    .getElementById("summaryEvent")
+    .innerText = event.name;
+
+
+  // Hide redeemable badge
+  const redeemable =
+    document.getElementById("selectedRedeemable");
+
+  if (redeemable) {
+    redeemable.innerHTML = "";
+    redeemable.style.display = "none";
+  }
+
+
+  // Reset payment method
+  const paymentMethod =
+    document.getElementById("paymentMethod");
+
+  if (paymentMethod) {
+    paymentMethod.value = "";
+  }
+
+
+  // Clear selected table
+  const selectedTable =
+    document.getElementById("selectedTableNumber");
+
+  if (selectedTable) {
+    selectedTable.value = "";
+  }
+
+
+  // Clear old QR/payment data
+  clearQr();
+
+
+  // Update price, total and payment amount
+  updateTotal();
+
+
+  // Refresh tables for selected event/date
+  loadTableSuggestions();
+
+}
+
+
+/************************************************
+ * DATE CHANGE
+ ************************************************/
+
+document
+  .getElementById("eventDate")
+  .addEventListener(
+    "change",
+    function() {
+
+      const dateValue = this.value;
+
+      if (!dateValue) return;
+
+
+      const selectedDate =
+        new Date(
+          dateValue + "T00:00:00"
+        );
+
+      const selectedDay =
+        selectedDate.getDay();
+
+
+      // Find events available on selected date's day
+      const dayEvents =
+        events.filter(function(event) {
+
+          return (
+            Number(event.dayNumber) === selectedDay &&
+            !event.full
+          );
+
+        });
+
+
+      // Remove previous multiple-event message
+      const oldMessage =
+        document.getElementById(
+          "multipleEventMessage"
+        );
+
+      if (oldMessage) {
+        oldMessage.remove();
+      }
+
+
+      // No event available on this day
+      if (!dayEvents.length) {
+
+        showError(
+          "No event is available on the selected date."
+        );
+
+        return;
+
+      }
+
+
+      hideError();
+
+
+      // Automatically select first available event
+      selectEvent(
+        dayEvents[0],
+        true
+      );
+
+
+      // Multiple events on same day
+      if (dayEvents.length > 1) {
+
+        const eventSelect =
+          document.getElementById(
+            "selectedEvent"
+          );
+
+
+        if (eventSelect) {
+
+          const message =
+            document.createElement("div");
+
+          message.id =
+            "multipleEventMessage";
+
+          message.innerText =
+            "Multiple events on this day. Please select one as per your choice.";
+
+          message.style.color =
+            "#d93025";
+
+          message.style.fontSize =
+            "13px";
+
+          message.style.fontWeight =
+            "700";
+
+          message.style.marginTop =
+            "6px";
+
+          message.style.lineHeight =
+            "1.4";
+
+          eventSelect.parentNode.appendChild(
+            message
+          );
+
+        }
+
+      }
+
+    }
+  );
+      
+  /************************************************
+   * UPDATE TOTAL
+   ************************************************/
+
+  function updateTotal() {
+
+  if (!selectedEvent) return;
+
+  const guests =
+    Number(document.getElementById("guests").value) || 1;
+
+  const date =
+    document.getElementById("eventDate").value;
+
+const price = Number(selectedEvent.price) || 0;
+const total = price * guests;
+
+
+  document.getElementById("summaryGuests").innerText =
+    guests;
+
+
+  document.getElementById("summaryPrice").innerText =
+    price === 0
+      ? "FREE"
+      : "₹" + price.toLocaleString("en-IN");
+
+
+  document.getElementById("summaryTotal").innerText =
+    total === 0
+      ? "FREE"
+      : "₹" + total.toLocaleString("en-IN");
+
+
+  // REDEEMABLE STATUS UNDER FINAL TOTAL
+  const summaryRedeemable =
+    document.getElementById("summaryRedeemable");
+
+  if (
+    summaryRedeemable &&
+    total > 0 &&
+    selectedEvent.redeemableAtOutlet
+  ) {
+
+    const redeemableText =
+      String(selectedEvent.redeemableAtOutlet).trim();
+
+    summaryRedeemable.innerText =
+      redeemableText;
+
+    summaryRedeemable.className =
+      "redeemable-badge" +
+      (
+        redeemableText.toUpperCase() === "NOT REDEEMABLE"
+          ? " no"
+          : ""
+      );
+
+    summaryRedeemable.style.display =
+      "inline-block";
+
+  } else if (summaryRedeemable) {
+
+    summaryRedeemable.innerText = "";
+    summaryRedeemable.style.display = "none";
+
+  }
+
+
+  if (date) {
+
+    const dateObj =
+      new Date(date + "T00:00:00");
+
+    document.getElementById("summaryDate").innerText =
+      dateObj.toLocaleDateString("en-IN", {
+        weekday: "short",
+        day: "2-digit",
+        month: "short",
+        year: "numeric"
+      });
+
+  }
+
+
+  const paymentMethodField =
+    document.getElementById("paymentMethodField");
+
+  const paymentMethod =
+    document.getElementById("paymentMethod");
+
+  const paymentBox =
+    document.getElementById("paymentBox");
+
+  const screenshotField =
+    document.getElementById("screenshotField");
+
+
+  if (total > 0) {
+
+    paymentMethodField.style.display =
+      "block";
+
+    document.getElementById("paymentAmount").innerText =
+      "₹" + total.toLocaleString("en-IN");
+
+    handlePaymentMethodChange();
+
+  } else {
+
+  paymentMethod.value = "";
+
+    paymentMethodField.style.display =
+      "none";
+
+    paymentBox.style.display =
+      "none";
+
+    screenshotField.style.display =
+      "none";
+
+    clearQr();
+
+  }
+
+
+  loadTableSuggestions();
+
+}
+
+function handlePaymentMethodChange() {
+
+  const method =
+    document.getElementById("paymentMethod").value;
+
+  const paymentBox =
+    document.getElementById("paymentBox");
+
+  const screenshotField =
+    document.getElementById("screenshotField");
+
+  const qrContainer =
+    document.querySelector(".qr-container");
+
+  const payButton =
+    document.getElementById("payButton");
+
+  const paymentNote =
+    document.querySelector(".payment-note");
+
+  const guests =
+    Number(document.getElementById("guests").value) || 1;
+
+  const total =
+    selectedEvent
+      ? Number(selectedEvent.price || 0) * guests
+      : 0;
+
+
+  // Reset QR/payment UI
+  clearQr();
+
+
+  // If no payment method selected
+  if (!method || total <= 0) {
+
+    paymentBox.style.display = "none";
+    screenshotField.style.display = "none";
+
+    if (qrContainer) {
+      qrContainer.style.display = "none";
+    }
+
+    if (payButton) {
+      payButton.style.display = "none";
+    }
+
+    if (paymentNote) {
+      paymentNote.style.display = "none";
+    }
+
+    return;
+  }
+
+
+  // Show payment section
+  paymentBox.style.display = "block";
+  screenshotField.style.display = "block";
+
+
+  // Update payment amount
+  const paymentAmount =
+    document.getElementById("paymentAmount");
+
+  if (paymentAmount) {
+    paymentAmount.innerText =
+      "₹" + total.toLocaleString("en-IN");
+  }
+
+
+  // QR CODE
+  if (method === "QR CODE") {
+
+    if (qrContainer) {
+      qrContainer.style.display = "block";
+    }
+
+    if (payButton) {
+      payButton.style.display = "none";
+    }
+
+    if (paymentNote) {
+      paymentNote.style.display = "block";
+    }
+
+    generatePaymentQr(total, true);
+
+  }
+
+
+// UPI
+else if (method === "UPI APP") {
+
+  if (qrContainer) {
+    qrContainer.style.display = "none";
+  }
+
+  if (payButton) {
+    payButton.style.display = "none";
+  }
+
+  if (paymentNote) {
+    paymentNote.style.display = "none";
+  }
+
+  const upiIdBox = document.getElementById("upiIdBox");
+
+  if (upiIdBox) {
+    upiIdBox.style.display = "block";
+  }
+
+  generatePaymentQr(total, false);
+}
+
+
+  // Anything else
+  else {
+
+    if (qrContainer) {
+      qrContainer.style.display = "none";
+    }
+
+    if (payButton) {
+      payButton.style.display = "none";
+    }
+
+    if (paymentNote) {
+      paymentNote.style.display = "none";
+    }
+
+  }
+}
+
+  /************************************************
+   * PAYMENT QR
+   ************************************************/
+
+  function clearQr() {
+
+    window.currentUpiUrl = null;
+
+    const qrLoading = document.getElementById("qrLoading");
+    const upiQr = document.getElementById("upiQr");
+    const payButton = document.getElementById("payButton");
+
+    if (qrLoading) {
+      qrLoading.innerText = "Generating payment QR...";
+      qrLoading.style.display = "block";
+    }
+
+    if (upiQr) {
+      upiQr.style.display = "none";
+      upiQr.src = "";
+    }
+
+    if (payButton) {
+      payButton.disabled = false;
+      payButton.innerText = "📲 Open UPI App";
+    }
+
+  }
+
+  function generatePaymentQr(amount, showQrImage) {
+
+    if (!selectedEvent || !amount) return;
+
+    const qrLoading = document.getElementById("qrLoading");
+    const upiQr = document.getElementById("upiQr");
+    const payButton = document.getElementById("payButton");
+
+    // Each call gets its own reference id so a stale/late response
+    // (e.g. from quickly switching UPI App <-> QR Code) never overwrites
+    // the currently selected payment method's UI.
+    const requestId = ++window.currentQrRequestId__ || (window.currentQrRequestId__ = 1);
+
+    if (qrLoading) {
+      qrLoading.innerText = "Generating payment QR...";
+      qrLoading.style.display = "block";
+    }
+    if (upiQr) upiQr.style.display = "none";
+
+    const bookingReference =
+      "FB" + selectedEvent.id.toUpperCase().replace(/[^A-Z0-9]/g, "") + Date.now();
+
+    google.script.run
+      .withSuccessHandler(function(result) {
+
+        if (requestId !== window.currentQrRequestId__) return; // stale response, ignore
+
+        window.currentUpiUrl = result.upiUrl;
+
+        if (qrLoading) qrLoading.style.display = "none";
+
+        if (showQrImage && upiQr && result.qrUrl) {
+          upiQr.src = result.qrUrl;
+          upiQr.style.display = "block";
+        }
+
+       if (payButton) {
+          payButton.disabled = false;
+        }
+
+        const upiIdBox = document.getElementById("upiIdBox");
+
+        if (upiIdBox) {
+          const paymentMethod =
+            document.getElementById("paymentMethod").value;
+
+          if (paymentMethod === "UPI APP") {
+            upiIdBox.style.display = "block";
+          } else {
+            upiIdBox.style.display = "none";
+          }
+        }
+
+      })
+      .withFailureHandler(function(error) {
+
+        if (requestId !== window.currentQrRequestId__) return;
+
+        console.error(error);
+
+        if (qrLoading) {
+          qrLoading.innerText =
+            "Unable to generate payment QR. Please reselect the payment method.";
+          qrLoading.style.display = "block";
+        }
+
+        if (payButton) {
+          payButton.disabled = true;
+        }
+
+      })
+      .getUpiQrData(amount, bookingReference);
+
+  }
+
+
+  /************************************************
+   * TABLE SUGGESTIONS
+   ************************************************/
+
+    function loadTableSuggestions() {
+
+    const field = document.getElementById("tableSuggestionsField");
+    const container = document.getElementById("tableSuggestions");
+    const hiddenInput = document.getElementById("selectedTableNumber");
+
+    if (!selectedEvent || !container) return;
+
+    const guests =
+      Number(document.getElementById("guests").value) || 1;
+
+    const date =
+      document.getElementById("eventDate").value;
+
+    // BIG GROUP — 13+ guests
+    if (guests > 12) {
+
+      if (field) {
+        field.style.display = "none";
+      }
+
+      if (container) {
+        container.innerHTML = "";
+      }
+
+      if (hiddenInput) {
+        hiddenInput.value = "";
+      }
+
+      return;
+    }
+
+    // NORMAL GROUP — show suggested tables
+    if (field) {
+      field.style.display = "block";
+    }
+
+    if (!date) {
+      container.innerHTML =
+        '<div class="small">Select a date to see available tables.</div>';
+      return;
+    }
+
+    container.innerHTML = '<div class="small">Checking available tables...</div>';
+    if (hiddenInput) hiddenInput.value = "";
+
+    // Debounce so rapid guest-count/date changes don't fire a burst of requests.
+    clearTimeout(tableSuggestionsTimer);
+
+    tableSuggestionsTimer = setTimeout(function() {
+
+      const requestId = ++tableSuggestionsRequestId;
+
+      google.script.run
+        .withSuccessHandler(function(result) {
+
+          if (requestId !== tableSuggestionsRequestId) return; // a newer request has since started
+
+          currentTables = (result && result.tables) || [];
+          renderTableSuggestions(result);
+
+        })
+        .withFailureHandler(function(error) {
+
+          if (requestId !== tableSuggestionsRequestId) return;
+
+          console.error(error);
+          container.innerHTML =
+            '<div class="small">Unable to check tables right now. You can still submit — we\'ll assign a table for you.</div>';
+
+        })
+        .getTableSuggestions(date, guests);
+
+    }, 250);
+
+  }
+
+function renderTableSuggestions(result) {
+
+  const container =
+    document.getElementById("tableSuggestions");
+
+  const field =
+    document.getElementById("tableSuggestionsField");
+
+  const hiddenInput =
+    document.getElementById("selectedTableNumber");
+
+  if (!container) return;
+
+  const guests =
+    Number(document.getElementById("guests").value) || 1;
+
+      // BIG GROUP — 13+ guests
+      if (guests > 12) {
+
+        if (field) {
+          field.style.display = "none";
+        }
+
+        container.innerHTML = "";
+
+        if (hiddenInput) {
+          hiddenInput.value = "";
+        }
+
+        return;
+      }
+
+      // NORMAL GROUP — show Suggested Tables
+      if (field) {
+        field.style.display = "block";
+      }
+
+      const tables =
+        (result && result.tables) || [];
+
+      if (!tables.length) {
+
+      container.style.display = "grid";
+
+        container.innerHTML =
+      '<div class="table-unavailable-message">' +
+
+      '<div class="table-unavailable-title">' +
+      escapeHtml(
+        result && result.message
+          ? result.message
+          : "No suitable table available for this number of guests."
+      ) +
+      '</div>' +
+
+      '<div class="table-unavailable-text">' +
+      'Don\'t worry, you can still book and a table will be arranged for you.' +
+      '</div>' +
+
+      '<div class="table-unavailable-help">' +
+      'For immediate assistance, call ' +
+      '<a href="tel:7631443144" class="table-phone">' +
+      '7631443144' +
+      '</a>' +
+      '</div>' +
+
+      '</div>';
+
+if (hiddenInput) {
+  hiddenInput.value = "";
+}
+
+    return;
+  }
+
+     // Show Solo Visitor message when 1 guest has available tables
+    if (guests === 1) {
+
+  container.innerHTML =
+    '<div class="solo-visitor-message">' +
+
+    '<div class="solo-visitor-title">' +
+    'Solo tonight? Good choice. 😉' +
+    '</div>' +
+
+    '<div class="solo-visitor-text">' +
+    'We\'ll happily seat you at the bar with other solo visitors.' +
+    '<br>' +
+    'Trust us - you won\'t feel alone. ❤️' +
+    '</div>' +
+
+    '</div>';
+
+  } else {
+
+  container.innerHTML = "";
+
+  }
+
+  tables.forEach(function(table, index) {
+
+      const card = document.createElement("div");
+      card.className = "table-card";
+      card.dataset.tableNumber = table.number;
+
+      const photoSrc = table.photoUrl
+        ? table.photoUrl
+        : "";
+
+      card.innerHTML = `
+        ${photoSrc
+          ? `<img src="${escapeHtml(photoSrc)}" alt="Table ${escapeHtml(table.number)}" onclick="openTablePhoto(event, '${escapeHtml(photoSrc)}')">`
+          : `<div style="height:125px;display:flex;align-items:center;justify-content:center;color:#999;font-size:14px;">No photo</div>`
+        }
+        <div class="table-card-body">
+          <div class="table-card-title">Table ${escapeHtml(table.number)}</div>
+          <div class="table-card-meta">Seats ${table.minGuests}–${table.maxGuests} guests</div>
+          <div class="table-status">✓ Available</div>
+        </div>
+      `;
+
+      card.addEventListener("click", function() {
+        selectTable(table.number, card);
+      });
+
+      container.appendChild(card);
+
+      // Auto-select the first suggested table so the customer always has
+      // a table attached to their booking unless they choose a different one.
+      if (index === 0) {
+        selectTable(table.number, card);
+      }
+
+    });
+
+  }
+
+
+  function selectTable(tableNumber, cardElement) {
+
+  function playTableSound() {
+
+    try {
+
+      audioContext =
+        audioContext ||
+        new (
+          window.AudioContext ||
+          window.webkitAudioContext
+        )();
+
+      const now = audioContext.currentTime;
+
+      // A little two-glass "cheers" clink for picking a table.
+      [1200, 1800].forEach(function(freq, i) {
+
+        const oscillator = audioContext.createOscillator();
+        const gain = audioContext.createGain();
+        const startAt = now + i * 0.045;
+
+        oscillator.type = "sine";
+
+        oscillator.frequency.setValueAtTime(freq, startAt);
+
+        oscillator.frequency.exponentialRampToValueAtTime(
+          freq * 0.9,
+          startAt + 0.15
+        );
+
+        gain.gain.setValueAtTime(0.045, startAt);
+
+        gain.gain.exponentialRampToValueAtTime(
+          0.001,
+          startAt + 0.18
+        );
+
+        oscillator.connect(gain);
+        gain.connect(audioContext.destination);
+
+        oscillator.start(startAt);
+        oscillator.stop(startAt + 0.18);
+
+      });
+
+    } catch (e) {}
+
+  }
+
+  playTableSound();
+
+  const hiddenInput =
+    document.getElementById("selectedTableNumber");
+
+  if (hiddenInput) {
+    hiddenInput.value = tableNumber;
+  }
+
+  document.querySelectorAll(".table-card").forEach(function(card) {
+
+    card.classList.remove("selected");
+
+    const status =
+      card.querySelector(".table-status");
+
+    if (status) {
+      status.textContent = "Available";
+    }
+
+  });
+
+  if (cardElement) {
+
+    cardElement.classList.add("selected");
+
+    const status =
+      cardElement.querySelector(".table-status");
+
+    if (status) {
+      status.textContent = "✓ Selected";
+    }
+
+  }
+
+}
+
+  function openTablePhoto(event, url) {
+
+    if (event) event.stopPropagation();
+
+    if (!url) return;
+
+    const modal = document.getElementById("tablePhotoModal");
+    const modalImage = document.getElementById("tablePhotoModalImage");
+
+    if (modalImage) modalImage.src = url;
+    if (modal) modal.classList.add("open");
+
+  }
+
+  function closeTablePhoto(event) {
+
+    if (event) event.stopPropagation();
+
+    const modal = document.getElementById("tablePhotoModal");
+    if (modal) modal.classList.remove("open");
+
+  }
+
+  /************************************************
+   * FILE NAME
+   ************************************************/
+
+  document
+    .getElementById(
+      "paymentScreenshot"
+    )
+    .addEventListener(
+      "change",
+      function() {
+
+        const file =
+          this.files[0];
+
+
+        if (!file) {
+
+          document
+            .getElementById("fileName")
+            .innerText = "";
+
+          return;
+
+        }
+
+
+        if (
+          file.size >
+          5 * 1024 * 1024
+        ) {
+
+          showError(
+            "Screenshot must be less than 5 MB."
+          );
+
+
+          this.value = "";
+
+          return;
+
+        }
+
+
+        document
+          .getElementById("fileName")
+          .innerText =
+          "Selected: " +
+          file.name;
+
+      }
+    );
+
+
+  /************************************************
+   * OPEN UPI APP
+   ************************************************/
+
+  function openUpiApp() {
+
+    if (!window.currentUpiUrl) {
+      showError(
+        "Payment link is still loading. Please wait a moment and try again."
+      );
+      return;
+    }
+
+    playTouchSound();
+
+    window.location.href =
+      window.currentUpiUrl;
+
+  }
+
+function copyUpiId() {
+  const upiId = "9930604295@hdfc";
+
+  navigator.clipboard.writeText(upiId)
+    .then(function() {
+      const button = document.querySelector(".copy-upi-button");
+
+      if (button) {
+        button.innerText = "✓ Copied";
+
+        setTimeout(function() {
+          button.innerText = "📋 Copy UPI ID";
+        }, 2000);
+      }
+    })
+    .catch(function() {
+      alert("UPI ID: " + upiId);
+    });
+}
+
+  /************************************************
+   * TOUCH SOUND
+   ************************************************/
+
+  let audioContext = null;
+
+  function playTouchSound() {
+
+    try {
+
+      audioContext =
+        audioContext ||
+        new (
+          window.AudioContext ||
+          window.webkitAudioContext
+        )();
+
+      const now = audioContext.currentTime;
+
+      // Bright glassy "tink" — like a light tap on a glass.
+      const osc1 = audioContext.createOscillator();
+      const osc2 = audioContext.createOscillator();
+      const gain = audioContext.createGain();
+
+      osc1.type = "triangle";
+      osc2.type = "sine";
+
+      osc1.frequency.setValueAtTime(980, now);
+      osc2.frequency.setValueAtTime(1560, now);
+
+      gain.gain.setValueAtTime(0.05, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.09);
+
+      osc1.connect(gain);
+      osc2.connect(gain);
+      gain.connect(audioContext.destination);
+
+      osc1.start(now);
+      osc2.start(now);
+      osc1.stop(now + 0.09);
+      osc2.stop(now + 0.09);
+
+    } catch (e) {}
+
+  }
+
+  /************************************************
+   * SUCCESS FANFARE
+   ************************************************/
+
+  function playSuccessFanfare() {
+
+    try {
+
+      audioContext =
+        audioContext ||
+        new (
+          window.AudioContext ||
+          window.webkitAudioContext
+        )();
+
+      const now = audioContext.currentTime;
+
+      // A little jukebox-style chime: C5 - E5 - G5 - C6
+      const notes = [523.25, 659.25, 783.99, 1046.5];
+
+      notes.forEach(function(freq, i) {
+
+        const oscillator = audioContext.createOscillator();
+        const gain = audioContext.createGain();
+        const startAt = now + i * 0.09;
+
+        oscillator.type = "triangle";
+        oscillator.frequency.setValueAtTime(freq, startAt);
+
+        gain.gain.setValueAtTime(0.0001, startAt);
+        gain.gain.linearRampToValueAtTime(0.06, startAt + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, startAt + 0.35);
+
+        oscillator.connect(gain);
+        gain.connect(audioContext.destination);
+
+        oscillator.start(startAt);
+        oscillator.stop(startAt + 0.35);
+
+      });
+
+    } catch (e) {}
+
+  }
+
+
+  document.addEventListener(
+    "click",
+    function(e) {
+
+      if (
+        e.target.closest(
+          "button, .event-card, .pay-button"
+        )
+      ) {
+        playTouchSound();
+      }
+
+    },
+    { passive: true }
+  );
+
+
+  /************************************************
+   * SUBMIT
+   ************************************************/
+
+  function submitBooking() {
+
+    hideError();
+
+
+    if (!selectedEvent) {
+
+      showError(
+        "Please select an event."
+      );
+
+      return;
+
+    }
+
+
+    const name =
+      document
+        .getElementById(
+          "customerName"
+        )
+        .value.trim();
+
+
+    const phone =
+      document
+        .getElementById(
+          "phone"
+        )
+        .value.replace(/\D/g, "");
+
+
+    const email =
+      document
+        .getElementById(
+          "email"
+        )
+        .value.trim();
+
+
+    const guests =
+      Number(
+        document
+          .getElementById(
+            "guests"
+          )
+          .value
+      );
+
+
+    const date =
+      document
+        .getElementById(
+          "eventDate"
+        )
+        .value;
+
+
+    const notes =
+      document
+        .getElementById(
+          "notes"
+        )
+        .value.trim();
+
+
+    const screenshotInput =
+      document.getElementById("paymentScreenshot");
+
+    const paymentMethod =
+      document.getElementById("paymentMethod").value;
+
+    const tableNumber =
+      document.getElementById("selectedTableNumber").value.trim();
+
+    const total =
+      selectedEvent.price * guests;
+
+
+    // Payment screenshot is mandatory for paid bookings
+    if (
+      total > 0 &&
+      (
+        !screenshotInput ||
+        !screenshotInput.files ||
+        !screenshotInput.files.length
+      )
+    ) {
+      showError(
+        "Please upload your payment screenshot before submitting your booking."
+      );
+      return;
+    }
+
+
+    // Table selection is mandatory for normal groups
+    if (guests <= 12 && !tableNumber) {
+      showError(
+        "Please select a table before continuing."
+      );
+      return;
+    }
+
+
+    /******** BASIC VALIDATION ********/
+
+    if (!name) {
+
+      showError(
+        "Please enter your name."
+      );
+
+      return;
+
+    }
+
+
+    if (!phone) {
+
+      showError(
+        "Please enter your mobile number."
+      );
+
+      return;
+
+    }
+
+    if (!/^[0-9]{10}$/.test(phone)) {
+      showError("Please enter a valid 10-digit mobile number.");
+      return;
+    }
+
+    if (!email) {
+      showError("Please enter your email address.");
+      return;
+    }
+
+    if (!/^\S+@\S+\.\S+$/.test(email)) {
+      showError("Please enter a valid email address.");
+      return;
+    }
+
+    if (total > 0 && ["UPI APP", "QR CODE"].indexOf(paymentMethod) === -1) {
+      showError("Please select how you would like to pay.");
+      return;
+    }
+
+    if (!date) {
+
+      showError(
+        "Please select the event date."
+      );
+
+      return;
+
+    }
+
+
+    /******** DATE VALIDATION ********/
+
+    const selectedDate =
+      new Date(
+        date +
+        "T00:00:00"
+      );
+
+
+    if (
+      selectedDate.getDay() !==
+      selectedEvent.dayNumber
+    ) {
+
+      showError(
+
+        "Please select a " +
+        selectedEvent.day +
+        " for this event."
+
+      );
+
+      return;
+
+    }
+
+
+    /******** SCREENSHOT ********/
+
+    if (
+      total > 0 &&
+      ["UPI APP", "QR CODE"].indexOf(paymentMethod) !== -1 &&
+      !screenshotInput.files.length
+    ) {
+
+      showError(
+        "Please upload your payment screenshot."
+      );
+
+      return;
+
+    }
+
+
+    const button =
+      document.getElementById(
+        "bookButton"
+      );
+
+
+    button.disabled = true;
+
+    button.innerText =
+      "Submitting Booking...";
+
+
+    if (total > 0 && ["UPI APP", "QR CODE"].indexOf(paymentMethod) !== -1) {
+
+      const file = screenshotInput.files[0];
+      const reader = new FileReader();
+
+      reader.onload = function(event) {
+        const base64 = event.target.result.split(",")[1];
+        sendBooking(
+          name,
+          phone,
+          email,
+          guests,
+          date,
+          notes,
+          paymentMethod,
+          tableNumber,
+          base64,
+          file.type
+        );
+      };
+
+      reader.readAsDataURL(file);
+
+    } else {
+
+      sendBooking(
+        name,
+        phone,
+        email,
+        guests,
+        date,
+        notes,
+        paymentMethod,
+        tableNumber,
+        "",
+        ""
+      );
+
+    }
+
+  }
+
+
+  /************************************************
+   * SEND BOOKING
+   ************************************************/
+
+  function sendBooking(
+    name,
+    phone,
+    email,
+    guests,
+    date,
+    notes,
+    paymentMethod,
+    tableNumber,
+    base64,
+    mimeType
+  ) {
+
+    const payload = {
+      eventId: selectedEvent.id,
+      eventDate: date,
+      customerName: name,
+      phone: phone,
+      email: email,
+      guests: guests,
+      notes: notes,
+      paymentMethod: paymentMethod,
+      tableNumber: tableNumber,
+      paymentScreenshot: base64 ? {
+        base64: base64,
+        mimeType: mimeType
+      } : null
+    };
+
+    google.script.run
+      .withSuccessHandler(function(result) {
+
+        if (!result.success) {
+          throw new Error(result.error || "Booking could not be submitted.");
+        }
+
+        document.getElementById("formSection").style.display = "none";
+        document.getElementById("successSection").style.display = "block";
+        document.getElementById("bookingId").innerText = result.bookingId;
+
+        const amountText =
+          result.totalAmount === 0
+            ? "FREE ENTRY"
+            : "₹" + Number(result.totalAmount).toLocaleString("en-IN");
+
+        document.getElementById("successDetails").innerHTML = `
+          <p><strong>${escapeHtml(result.eventName)}</strong></p>
+          <p>
+            📅 ${escapeHtml(result.eventDate)}<br>
+            🕐 ${escapeHtml(result.eventTime)}<br>
+            👥 ${result.guests} Guest(s)<br>
+            💰 ${amountText}
+          </p>`;
+
+        playSuccessFanfare();
+
+        window.scrollTo({ top: 0, behavior: "smooth" });
+
+      })
+      .withFailureHandler(function(error) {
+        console.error(error);
+        showError(error.message || "Something went wrong. Please try again.");
+        const button = document.getElementById("bookButton");
+        button.disabled = false;
+        button.innerText = "Submit Booking";
+      })
+      .submitBooking(payload);
+
+  }
+
+
+  /************************************************
+   * ERROR
+   ************************************************/
+
+  function showError(
+    message
+  ) {
+
+    const box =
+      document.getElementById(
+        "errorBox"
+      );
+
+
+    box.innerText =
+      message;
+
+
+    box.style.display =
+      "block";
+
+
+    window.scrollTo({
+
+      top: 0,
+
+      behavior: "smooth"
+
+    });
+
+  }
+
+
+  function hideError() {
+
+    document
+      .getElementById(
+        "errorBox"
+      )
+      .style.display =
+      "none";
+
+  }
+
+
+  /************************************************
+   * TODAY
+   ************************************************/
+
+  function getToday() {
+
+    const d =
+      new Date();
+
+
+    const month =
+      String(
+        d.getMonth() + 1
+      ).padStart(2, "0");
+
+
+    const day =
+      String(
+        d.getDate()
+      ).padStart(2, "0");
+
+
+    return (
+
+      d.getFullYear() +
+      "-" +
+      month +
+      "-" +
+      day
+
+    );
+
+  }
+
+
+  /************************************************
+   * ESCAPE HTML
+   ************************************************/
+
+  function escapeHtml(
+    value
+  ) {
+
+    return String(
+      value || ""
+    )
+
+      .replace(
+        /&/g,
+        "&amp;"
+      )
+
+      .replace(
+        /</g,
+        "&lt;"
+      )
+
+      .replace(
+        />/g,
+        "&gt;"
+      )
+
+      .replace(
+        /"/g,
+        "&quot;"
+      )
+
+      .replace(
+        /'/g,
+        "&#039;"
+      );
+
+  }
+
+document.getElementById("guests").addEventListener("change", function() {
+
+  const guests = Number(this.value) || 1;
+
+  const bigGroupMessage =
+    document.getElementById("bigGroupMessage");
+
+  // Big group message
+  if (bigGroupMessage) {
+    bigGroupMessage.style.display =
+      guests > 12 ? "block" : "none";
+  }
+
+  // Update total amount
+  updateTotal();
+
+  // Refresh available tables according to guest count
+  loadTableSuggestions();
+
+});
+
+</script>
+
+</body>
+
+</html>
